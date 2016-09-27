@@ -6,7 +6,7 @@ User.destroy_all
 Workshop.destroy_all
 Location.destroy_all
 
-User.create(email: 'admin@web.com', password: 'password', password_confirmation: 'password')
+User.create(name: 'Admin User', email: 'admin@web.com', password: 'password', password_confirmation: 'password')
 Location.create(name: 'Tree of Life Birth Center', address: '617 Saxony Place, Encinitas, CA 92302')
 Workshop.create(subject: 'sleep', time: Time.now, limit: 15, location: Location.first)
 

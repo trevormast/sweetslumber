@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Workshops</h1>
+<h1>Upcoming Classes</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
+      <th>Location</th>
       <th>Type</th>
       <th>Time</th>
       <th>Limit</th>
@@ -15,7 +16,8 @@
   <tbody>
     <% @workshops.each do |workshop| %>
       <tr>
-        <td><%= workshop.type %></td>
+        <td><%= workshop.location.name  %></td>
+        <td><%= workshop.subject %></td>
         <td><%= workshop.time %></td>
         <td><%= workshop.limit %></td>
         <td><%= link_to 'Show', workshop %></td>
