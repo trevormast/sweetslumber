@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @workshop.type %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @workshop.time %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @workshop.limit %>
+</p>
+
+<%= link_to 'Edit', edit_workshop_path(@workshop) %> |
+<%= link_to 'Back', workshops_path %>
