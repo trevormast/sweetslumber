@@ -20,11 +20,11 @@
         <td><%= workshop.subject %></td>
         <td><%= workshop.time %></td>
         <td><%= workshop.limit %></td>
-        <td><%= link_to("Register", register_workshop_path(workshop), method: :patch) %></td>
-        <%if current_user.try(:admin?)  %>
-          <td><%= link_to 'Show', workshop %></td>
-          <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
-          <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to("Register", register_workshop_path(workshop), method: :patch, class: 'btn btn-default') unless admin_present? %></td>
+        <%if admin_present?  %>
+          <td><%= link_to 'Show', workshop, class: 'btn btn-default' %></td>
+          <td><%= link_to 'Edit', edit_workshop_path(workshop), class: 'btn btn-default' %></td>
+          <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
         <% end %>
       </tr>
     <% end %>
@@ -33,6 +33,6 @@
 
 <br>
 
-<% if current_user.try(:admin?) %>
+<% if admin_present? %>
   <%= link_to 'New Workshop', new_workshop_path %>
 <% end %>
