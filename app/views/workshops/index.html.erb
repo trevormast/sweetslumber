@@ -7,6 +7,7 @@
     <tr>
       <th>Location</th>
       <th>Type</th>
+      <th>Date</th>
       <th>Time</th>
       <th>Limit</th>
       <th colspan="3"></th>
@@ -18,7 +19,8 @@
       <tr>
         <td><%= workshop.location.name  %></td>
         <td><%= workshop.subject %></td>
-        <td><%= workshop.time %></td>
+        <td><%= date_format(workshop.time) %></td>
+        <td><%= time_format(workshop.time) %></td>
         <td><%= workshop.limit %></td>
         <td><%= link_to("Register", register_workshop_path(workshop), method: :patch, class: 'btn btn-default') unless admin_present? %></td>
         <%if admin_present?  %>
