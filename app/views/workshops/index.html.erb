@@ -32,4 +32,6 @@
 
 <br>
 
-<%= link_to 'New Workshop', new_workshop_path %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'New Workshop', new_workshop_path %>
+<% end %>
