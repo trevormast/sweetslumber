@@ -1,5 +1,6 @@
 class WorkshopsController < ApplicationController
-  before_action :set_workshop, only: [:show, :edit, :update, :destroy]
+  before_action :set_workshop, only: [:show, :edit, :register, :update, :destroy]
+  before_action :authenticate_user!, only: [:register]
 
   # GET /workshops
   # GET /workshops.json
@@ -19,6 +20,16 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops/1/edit
   def edit
+  end
+
+  def register
+    respond_to do |format|
+      if add_user(current_user)
+        format.html { redirect_to @workshop, notice: 'You have successfully registered' }
+      else
+        format.html { redirect_to @workshop, notice: 'This class is full.'}
+      end
+    end
   end
 
   # POST /workshops
@@ -70,5 +81,13 @@ class WorkshopsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def workshop_params
       params.require(:workshop).permit(:subject, :time, :limit)
+    end
+
+    def add_user(user)
+      if @workshop.users.count != @workshop.limit
+        @workshop.users << user
+      else
+        false
+      end
     end
 end
