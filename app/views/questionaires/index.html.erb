@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Questionaires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Baby name</th>
+      <th>Baby dob</th>
+      <th>Nap location</th>
+      <th>Night location</th>
+      <th>Desired sleep location</th>
+      <th>Nap routine</th>
+      <th>Night routine</th>
+      <th>Naps per day</th>
+      <th>Bedtime</th>
+      <th>Sleep obstacle</th>
+      <th>Nightwakings</th>
+      <th>Sleep goal</th>
+      <th>Referred by</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questionaires.each do |questionaire| %>
+      <tr>
+        <td><%= questionaire.baby_name %></td>
+        <td><%= questionaire.baby_dob %></td>
+        <td><%= questionaire.nap_location %></td>
+        <td><%= questionaire.night_location %></td>
+        <td><%= questionaire.desired_sleep_location %></td>
+        <td><%= questionaire.nap_routine %></td>
+        <td><%= questionaire.night_routine %></td>
+        <td><%= questionaire.naps_per_day %></td>
+        <td><%= questionaire.bedtime %></td>
+        <td><%= questionaire.sleep_obstacle %></td>
+        <td><%= questionaire.nightwakings %></td>
+        <td><%= questionaire.sleep_goal %></td>
+        <td><%= questionaire.referred_by %></td>
+        <td><%= link_to 'Show', questionaire %></td>
+        <td><%= link_to 'Edit', edit_questionaire_path(questionaire) %></td>
+        <td><%= link_to 'Destroy', questionaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Questionaire', new_questionaire_path %>

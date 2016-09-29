@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Baby name:</strong>
+  <%= @questionaire.baby_name %>
+</p>
+
+<p>
+  <strong>Baby dob:</strong>
+  <%= @questionaire.baby_dob %>
+</p>
+
+<p>
+  <strong>Nap location:</strong>
+  <%= @questionaire.nap_location %>
+</p>
+
+<p>
+  <strong>Night location:</strong>
+  <%= @questionaire.night_location %>
+</p>
+
+<p>
+  <strong>Desired sleep location:</strong>
+  <%= @questionaire.desired_sleep_location %>
+</p>
+
+<p>
+  <strong>Nap routine:</strong>
+  <%= @questionaire.nap_routine %>
+</p>
+
+<p>
+  <strong>Night routine:</strong>
+  <%= @questionaire.night_routine %>
+</p>
+
+<p>
+  <strong>Naps per day:</strong>
+  <%= @questionaire.naps_per_day %>
+</p>
+
+<p>
+  <strong>Bedtime:</strong>
+  <%= @questionaire.bedtime %>
+</p>
+
+<p>
+  <strong>Sleep obstacle:</strong>
+  <%= @questionaire.sleep_obstacle %>
+</p>
+
+<p>
+  <strong>Nightwakings:</strong>
+  <%= @questionaire.nightwakings %>
+</p>
+
+<p>
+  <strong>Sleep goal:</strong>
+  <%= @questionaire.sleep_goal %>
+</p>
+
+<p>
+  <strong>Referred by:</strong>
+  <%= @questionaire.referred_by %>
+</p>
+
+<%= link_to 'Edit', edit_questionaire_path(@questionaire) %> |
+<%= link_to 'Back', questionaires_path %>

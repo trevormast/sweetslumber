@@ -1,0 +1,69 @@
+<%= form_for(@questionaire) do |f| %>
+  <% if @questionaire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@questionaire.errors.count, "error") %> prohibited this questionaire from being saved:</h2>
+
+      <ul>
+      <% @questionaire.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :baby_name %><br>
+    <%= f.text_area :baby_name %>
+  </div>
+  <div class="field">
+    <%= f.label :baby_dob %><br>
+    <%= f.datetime_select :baby_dob %>
+  </div>
+  <div class="field">
+    <%= f.label :nap_location %><br>
+    <%= f.text_field :nap_location %>
+  </div>
+  <div class="field">
+    <%= f.label :night_location %><br>
+    <%= f.text_field :night_location %>
+  </div>
+  <div class="field">
+    <%= f.label :desired_sleep_location %><br>
+    <%= f.text_field :desired_sleep_location %>
+  </div>
+  <div class="field">
+    <%= f.label :nap_routine %><br>
+    <%= f.text_field :nap_routine %>
+  </div>
+  <div class="field">
+    <%= f.label :night_routine %><br>
+    <%= f.text_field :night_routine %>
+  </div>
+  <div class="field">
+    <%= f.label :naps_per_day %><br>
+    <%= f.number_field :naps_per_day %>
+  </div>
+  <div class="field">
+    <%= f.label :bedtime %><br>
+    <%= f.time_select :bedtime %>
+  </div>
+  <div class="field">
+    <%= f.label :sleep_obstacle %><br>
+    <%= f.text_field :sleep_obstacle %>
+  </div>
+  <div class="field">
+    <%= f.label :nightwakings %><br>
+    <%= f.number_field :nightwakings %>
+  </div>
+  <div class="field">
+    <%= f.label :sleep_goal %><br>
+    <%= f.text_field :sleep_goal %>
+  </div>
+  <div class="field">
+    <%= f.label :referred_by %><br>
+    <%= f.text_field :referred_by %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
