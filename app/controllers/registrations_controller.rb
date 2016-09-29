@@ -9,8 +9,6 @@ class RegistrationsController < ApplicationController
 
   def new
     @workshop = Workshop.find(params[:workshop_id])
-  #   @registration = @workshop.registrations.build
-    # @questionaire = @registration.build_questionaire
 
     @registration = Registration.new(workshop_id: @workshop,
                                      user_id: current_user)
@@ -28,7 +26,7 @@ class RegistrationsController < ApplicationController
           format.html { redirect_to workshop_path(params[:workshop_id]), notice: 'Registration was successful.' }
           format.json { render :show, status: :created, location: @registration }
         else
-          format.html { render :new }
+          format.html { redirect_to new_workshop_registration_path(params[:workshop_id]), notice: "Already Registered." }
           format.json { render json: @registration.errors, status: :unprocessable_entity }
       end
     end
