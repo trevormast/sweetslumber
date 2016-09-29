@@ -8,6 +8,6 @@ module WorkshopsHelper
   end
 
   def time_format(date_time)
-    date_time.strftime("%l:%m %p")
+    date_time.strftime("%l:%M %p")
   end
 end

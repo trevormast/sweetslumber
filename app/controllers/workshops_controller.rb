@@ -24,7 +24,7 @@ class WorkshopsController < ApplicationController
 
   def register
     respond_to do |format|
-      if add_user(current_user)
+      if register_user(current_user)
         format.html { redirect_to @workshop, notice: 'You have successfully registered' }
       else
         format.html { redirect_to @workshop, notice: 'This class is full.'}
@@ -83,11 +83,9 @@ class WorkshopsController < ApplicationController
       params.require(:workshop).permit(:location_id, :subject, :time, :limit)
     end
 
-    def add_user(user)
+    def register_user(user)
       if @workshop.users.count != @workshop.limit
         @workshop.users << user
-      else
-        false
       end
     end
 end
