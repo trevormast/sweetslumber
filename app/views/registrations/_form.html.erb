@@ -12,60 +12,60 @@
   <% end %>
 
   <%= f.fields_for :questionaire do |ff| %>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :baby_name %><br>
-      <%= ff.text_area :baby_name %>
+      <%= ff.text_field :baby_name, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :baby_dob %><br>
-      <%= ff.datetime_select :baby_dob %>
+      <%= ff.date_select :baby_dob, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :nap_location %><br>
-      <%= ff.text_field :nap_location %>
+      <%= ff.text_field :nap_location, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :night_location %><br>
-      <%= ff.text_field :night_location %>
+      <%= ff.text_field :night_location, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :desired_sleep_location %><br>
-      <%= ff.text_field :desired_sleep_location %>
+      <%= ff.text_field :desired_sleep_location, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :nap_routine %><br>
-      <%= ff.text_field :nap_routine %>
+      <%= ff.text_field :nap_routine, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :night_routine %><br>
-      <%= ff.text_field :night_routine %>
+      <%= ff.text_field :night_routine, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :naps_per_day %><br>
-      <%= ff.number_field :naps_per_day %>
+      <%= ff.number_field :naps_per_day, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :bedtime %><br>
-      <%= ff.time_select :bedtime %>
+      <%= ff.time_select :bedtime, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :sleep_obstacle %><br>
-      <%= ff.text_field :sleep_obstacle %>
+      <%= ff.text_field :sleep_obstacle, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :nightwakings %><br>
-      <%= ff.number_field :nightwakings %>
+      <%= ff.number_field :nightwakings, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :sleep_goal %><br>
-      <%= ff.text_field :sleep_goal %>
+      <%= ff.text_field :sleep_goal, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="field form-group">
       <%= ff.label :referred_by %><br>
-      <%= ff.text_field :referred_by %>
+      <%= ff.text_field :referred_by, class: 'form-control' %>
     </div>
   <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(class: 'btn btn-primary' )%>
   </div>
 <% end %>
