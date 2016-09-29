@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :questionaires
   devise_for :admins
   resources :locations
   resources :workshops do
     patch 'register', on: :member
+    resources :registrations
   end
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
