@@ -16,6 +16,6 @@ module WorkshopsHelper
   end
 
   def baby_age(user, workshop)
-    distance_of_time_in_words(workshop.time, user_responses(user, workshop).baby_dob)
+    distance_of_time_in_words(workshop.time, user_responses(user, workshop).baby_dob, accumulate_on: :months, only: :months)
   end
 end
