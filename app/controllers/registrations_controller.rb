@@ -1,11 +1,4 @@
 class RegistrationsController < ApplicationController
-  def index
-    @registrations = Registration.all
-  end
-
-  def show
-    @registration = Registration.find(params[:id])
-  end
 
   def new
     @workshop = Workshop.find(params[:workshop_id])
@@ -18,7 +11,7 @@ class RegistrationsController < ApplicationController
     @questionaire = Questionaire.new(questionaire_params[:questionaire])
 
     @registration = Registration.new(workshop_id: params[:workshop_id],
-                                      user_id: current_user.id)
+                                      user_id: current_user)
     @registration.questionaire = @questionaire
 
     respond_to do |format|
