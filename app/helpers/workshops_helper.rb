@@ -10,4 +10,8 @@ module WorkshopsHelper
   def time_format(date_time)
     date_time.strftime("%l:%m %p")
   end
+
+  def user_questionaire(user)
+    Registration.find_by(user_id: user, workshop_id: @workshop.id).questionaire
+  end
 end

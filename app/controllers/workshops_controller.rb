@@ -1,6 +1,5 @@
 class WorkshopsController < ApplicationController
   before_action :set_workshop, only: [:show, :edit, :register, :update, :destroy]
-  before_action :authenticate_user!, only: [:register]
 
   # GET /workshops
   # GET /workshops.json
@@ -20,16 +19,6 @@ class WorkshopsController < ApplicationController
 
   # GET /workshops/1/edit
   def edit
-  end
-
-  def register
-    respond_to do |format|
-      if register_user(current_user)
-        format.html { redirect_to @workshop, notice: 'You have successfully registered' }
-      else
-        format.html { redirect_to @workshop, notice: 'This class is full.'}
-      end
-    end
   end
 
   # POST /workshops

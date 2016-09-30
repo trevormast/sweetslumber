@@ -26,7 +26,7 @@ class RegistrationsController < ApplicationController
           format.html { redirect_to workshop_path(params[:workshop_id]), notice: 'Registration was successful.' }
           format.json { render :show, status: :created, location: @registration }
         else
-          format.html { redirect_to new_workshop_registration_path(params[:workshop_id]), notice: "Already Registered." }
+          format.html { redirect_to new_workshop_registration_path(params[:workshop_id]), alert: "Already Registered." }
           format.json { render json: @registration.errors, status: :unprocessable_entity }
       end
     end
