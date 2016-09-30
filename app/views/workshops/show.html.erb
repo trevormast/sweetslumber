@@ -31,12 +31,14 @@
     <thead>
       <th>Name</th>
       <th>Email</th>
+      <th>Baby's Age</th>
       <th></th>
     </thead>
     <% @workshop.users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%= baby_age(user, @workshop)  %></td>
         <td><%= link_to("View Responses",
                          user_questionaire_path(workshop_id: @workshop.id, user_id: user.id),
                          class: 'btn btn-default' ) %></a></td>
