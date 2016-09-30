@@ -46,7 +46,7 @@
     </div>
     <div class="field form-group">
       <%= ff.label :bedtime %><br>
-      <%= ff.time_select :bedtime, class: 'form-control' %>
+      <%= ff.time_select :bedtime, {:ampm => true, :default => {:hour => '19', :minute => '00'}} %>
     </div>
     <div class="field form-group">
       <%= ff.label :sleep_obstacle %><br>
