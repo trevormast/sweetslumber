@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :admins
   resources :locations
+
   resources :workshops do
-    patch 'register', on: :member
+    resources :registrations
   end
+
   devise_for :users
+  devise_for :admins
+
+  get 'user/questionaire', :to => 'questionaires#show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

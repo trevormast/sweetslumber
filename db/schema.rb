@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927225119) do
+ActiveRecord::Schema.define(version: 20160929052538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,27 @@ ActiveRecord::Schema.define(version: 20160927225119) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "questionaires", force: :cascade do |t|
+    t.text     "baby_name"
+    t.datetime "baby_dob"
+    t.string   "nap_location"
+    t.string   "night_location"
+    t.string   "desired_sleep_location"
+    t.string   "nap_routine"
+    t.string   "night_routine"
+    t.integer  "naps_per_day"
+    t.time     "bedtime"
+    t.string   "sleep_obstacle"
+    t.integer  "nightwakings"
+    t.string   "sleep_goal"
+    t.string   "referred_by"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "registration_id"
+  end
+
+  add_index "questionaires", ["registration_id"], name: "index_questionaires_on_registration_id", using: :btree
 
   create_table "registrations", force: :cascade do |t|
     t.integer  "user_id"
@@ -84,6 +105,7 @@ ActiveRecord::Schema.define(version: 20160927225119) do
 
   add_index "workshops", ["location_id"], name: "index_workshops_on_location_id", using: :btree
 
+  add_foreign_key "questionaires", "registrations"
   add_foreign_key "registrations", "users"
   add_foreign_key "registrations", "workshops"
   add_foreign_key "users", "workshops"
