@@ -1,5 +1,8 @@
+require 'pry'
+
 class WorkshopsController < ApplicationController
   before_action :set_workshop, only: [:show, :edit, :register, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /workshops
   # GET /workshops.json
@@ -40,6 +43,7 @@ class WorkshopsController < ApplicationController
   # PATCH/PUT /workshops/1
   # PATCH/PUT /workshops/1.json
   def update
+    # binding.pry
     respond_to do |format|
       if @workshop.update(workshop_params)
         format.html { redirect_to @workshop, notice: 'Workshop was successfully updated.' }
