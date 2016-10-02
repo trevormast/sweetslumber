@@ -19,10 +19,6 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe QuestionairesController, type: :controller do
-
-  # This should return the minimal set of attributes required to create a valid
-  # Questionaire. As you add validations to Questionaire, be sure to
-  # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
   }
@@ -36,124 +32,15 @@ RSpec.describe QuestionairesController, type: :controller do
   # QuestionairesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all questionaires as @questionaires" do
-      questionaire = Questionaire.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(assigns(:questionaires)).to eq([questionaire])
-    end
-  end
-
   describe "GET #show" do
+    before do
+      login_with :user
+    end
+
     it "assigns the requested questionaire as @questionaire" do
       questionaire = Questionaire.create! valid_attributes
-      get :show, params: {id: questionaire.to_param}, session: valid_session
+      get :show, {id: questionaire.to_param}
       expect(assigns(:questionaire)).to eq(questionaire)
     end
   end
-
-  describe "GET #new" do
-    it "assigns a new questionaire as @questionaire" do
-      get :new, params: {}, session: valid_session
-      expect(assigns(:questionaire)).to be_a_new(Questionaire)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested questionaire as @questionaire" do
-      questionaire = Questionaire.create! valid_attributes
-      get :edit, params: {id: questionaire.to_param}, session: valid_session
-      expect(assigns(:questionaire)).to eq(questionaire)
-    end
-  end
-
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Questionaire" do
-        expect {
-          post :create, params: {questionaire: valid_attributes}, session: valid_session
-        }.to change(Questionaire, :count).by(1)
-      end
-
-      it "assigns a newly created questionaire as @questionaire" do
-        post :create, params: {questionaire: valid_attributes}, session: valid_session
-        expect(assigns(:questionaire)).to be_a(Questionaire)
-        expect(assigns(:questionaire)).to be_persisted
-      end
-
-      it "redirects to the created questionaire" do
-        post :create, params: {questionaire: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Questionaire.last)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns a newly created but unsaved questionaire as @questionaire" do
-        post :create, params: {questionaire: invalid_attributes}, session: valid_session
-        expect(assigns(:questionaire)).to be_a_new(Questionaire)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, params: {questionaire: invalid_attributes}, session: valid_session
-        expect(response).to render_template("new")
-      end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested questionaire" do
-        questionaire = Questionaire.create! valid_attributes
-        put :update, params: {id: questionaire.to_param, questionaire: new_attributes}, session: valid_session
-        questionaire.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested questionaire as @questionaire" do
-        questionaire = Questionaire.create! valid_attributes
-        put :update, params: {id: questionaire.to_param, questionaire: valid_attributes}, session: valid_session
-        expect(assigns(:questionaire)).to eq(questionaire)
-      end
-
-      it "redirects to the questionaire" do
-        questionaire = Questionaire.create! valid_attributes
-        put :update, params: {id: questionaire.to_param, questionaire: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(questionaire)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the questionaire as @questionaire" do
-        questionaire = Questionaire.create! valid_attributes
-        put :update, params: {id: questionaire.to_param, questionaire: invalid_attributes}, session: valid_session
-        expect(assigns(:questionaire)).to eq(questionaire)
-      end
-
-      it "re-renders the 'edit' template" do
-        questionaire = Questionaire.create! valid_attributes
-        put :update, params: {id: questionaire.to_param, questionaire: invalid_attributes}, session: valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested questionaire" do
-      questionaire = Questionaire.create! valid_attributes
-      expect {
-        delete :destroy, params: {id: questionaire.to_param}, session: valid_session
-      }.to change(Questionaire, :count).by(-1)
-    end
-
-    it "redirects to the questionaires list" do
-      questionaire = Questionaire.create! valid_attributes
-      delete :destroy, params: {id: questionaire.to_param}, session: valid_session
-      expect(response).to redirect_to(questionaires_url)
-    end
-  end
-
 end
