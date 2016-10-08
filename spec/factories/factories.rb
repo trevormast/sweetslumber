@@ -10,6 +10,12 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :admin do
+    email 'new@admin.com'
+    password 'password'
+    password_confirmation 'password'
+  end
+
   factory :workshop do
     location
 
