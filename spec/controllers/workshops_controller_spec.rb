@@ -2,8 +2,14 @@ require 'rails_helper'
 
 RSpec.describe WorkshopsController, type: :controller do
 
+  before do
+    @location = FactoryGirl.create(:location)
+  end
+
   let(:valid_attributes) {
-    { subject: 'workshop subject',
+    {
+      location_id: @location.id,
+      subject: 'workshop subject',
       time: DateTime.now,
       limit: 20
     }
@@ -66,7 +72,7 @@ RSpec.describe WorkshopsController, type: :controller do
     describe "GET #edit" do
       it "assigns the requested workshop as @workshop" do
         workshop = Workshop.create! valid_attributes
-        get :edit, {id: workshop.to_param}
+        get :edit, { id: workshop.to_param }
         expect(assigns(:workshop)).to eq(workshop)
       end
     end
@@ -75,18 +81,18 @@ RSpec.describe WorkshopsController, type: :controller do
       context "with valid params" do
         it "creates a new Workshop" do
           expect {
-            post :create, {workshop: valid_attributes}
+            post :create, { workshop: valid_attributes }
           }.to change(Workshop, :count).by(1)
         end
 
         it "assigns a newly created workshop as @workshop" do
-          post :create, {workshop: valid_attributes}
+          post :create, { workshop: valid_attributes }
           expect(assigns(:workshop)).to be_a(Workshop)
           expect(assigns(:workshop)).to be_persisted
         end
 
         it "redirects to the created workshop" do
-          post :create, {workshop: valid_attributes}
+          post :create, { workshop: valid_attributes }
           expect(response).to redirect_to(Workshop.last)
         end
       end
