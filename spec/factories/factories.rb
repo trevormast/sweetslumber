@@ -5,12 +5,13 @@ FactoryGirl.define do
   end
 
   factory :user do
-
+    email 'new@user.com'
+    password 'password'
+    password_confirmation 'password'
   end
 
   factory :workshop do
     location
-    users
 
     subject 'New Class'
     time Time.now
