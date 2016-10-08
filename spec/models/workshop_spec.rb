@@ -1,5 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Workshop, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:valid_attributes) {
+    {
+
+    }
+  }
+
+  let(:invalid_attributes) {
+    {
+
+    }
+  }
+
+  describe 'new workshop' do
+
+  end
 end
