@@ -7,6 +7,6 @@ class Workshop < ActiveRecord::Base
   has_many :registrations, dependent: :destroy
   has_many :users, through: :registrations
 
-  validates_presence_of :subject, :time, :limit
+  validates_presence_of :subject, :time, :limit, :location
 
 end
