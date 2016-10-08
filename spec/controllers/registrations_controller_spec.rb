@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe RegistrationsController, type: :controller do
+  before do
+    @location = FactoryGirl.create(:location)
+    @workshop = FactoryGirl.create(:workshop, location_id: @location.id)
+  end
 
   describe 'GET new' do
     before do
       login_with :user
 
-      @workshop = Workshop.create
       get :new, {workshop_id: @workshop.id}
     end
 
@@ -22,8 +25,6 @@ RSpec.describe RegistrationsController, type: :controller do
   describe 'GET create' do
     before do
       login_with :user
-
-      @workshop = Workshop.create
     end
 
     context 'with valid params' do
