@@ -94,14 +94,16 @@ RSpec.describe LocationsController, type: :controller do
     describe "PUT #update" do
       context "with valid params" do
         let(:new_attributes) {
-          skip("Add a hash of attributes valid for your model")
+          {
+            name: 'newer location'
+          }
         }
 
         it "updates the requested location" do
           location = Location.create! valid_attributes
           put :update, {id: location.to_param, location: new_attributes}
           location.reload
-          skip("Add assertions for updated state")
+          expect(location.name).to eq('newer location')
         end
 
         it "assigns the requested location as @location" do
@@ -124,12 +126,11 @@ RSpec.describe LocationsController, type: :controller do
           expect(assigns(:location)).to eq(location)
         end
 
-        it "re-renders the 'edit' template" do
-          skip('TODO')
-          location = Location.create! valid_attributes
-          put :update, {id: location.to_param, location: invalid_attributes}
-          expect(response).to render_template("edit")
-        end
+        # it "re-renders the 'edit' template" do
+        #   location = Location.create! valid_attributes
+        #   put :update, {id: location.to_param, location: invalid_attributes}
+        #   expect(response).to render_template("edit")
+        # end
       end
     end
 
