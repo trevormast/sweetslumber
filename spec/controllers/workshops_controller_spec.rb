@@ -120,7 +120,7 @@ RSpec.describe WorkshopsController, type: :controller do
           workshop = Workshop.create! valid_attributes
           put :update, {id: workshop.to_param, workshop: new_attributes}
           workshop.reload
-          skip("Add assertions for updated state")
+          expect(assigns(:workshop).subject).to eq('new subject')
         end
 
         it "assigns the requested workshop as @workshop" do
@@ -143,12 +143,12 @@ RSpec.describe WorkshopsController, type: :controller do
           expect(assigns(:workshop)).to eq(workshop)
         end
 
-        it "re-renders the 'edit' template" do
-          skip('TODO')
-          workshop = Workshop.create! valid_attributes
-          put :update, {id: workshop.to_param, workshop: invalid_attributes}
-          expect(response).to render_template("edit")
-        end
+        # it "re-renders the 'edit' template" do
+        #   skip('TODO')
+        #   workshop = Workshop.create! valid_attributes
+        #   put :update, {id: workshop.to_param, workshop: invalid_attributes}
+        #   expect(response).to render_template("edit")
+        # end
       end
     end
 

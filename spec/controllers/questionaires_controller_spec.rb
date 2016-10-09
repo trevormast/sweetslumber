@@ -19,18 +19,16 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe QuestionairesController, type: :controller do
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
-
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # QuestionairesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_attributes) {
+    {
+      user_id: @user.id,
+      workshop_id: @workshop.id
+    }
+  }
 
   describe "GET #show" do
     before do
@@ -38,9 +36,17 @@ RSpec.describe QuestionairesController, type: :controller do
     end
 
     it "assigns the requested questionaire as @questionaire" do
-      questionaire = Questionaire.create! valid_attributes
-      get :show, {id: questionaire.to_param}
-      expect(assigns(:questionaire)).to eq(questionaire)
+      @user = FactoryGirl.create(:user)
+      @workshop = FactoryGirl.create(:workshop)
+      @questionaire = FactoryGirl.create(:questionaire)
+      @registration = FactoryGirl.create(:registration,
+                                         user: @user,
+                                         workshop: @workshop,
+                                         questionaire: @questionaire)
+
+      get :show, valid_attributes
+
+      expect(assigns(:questionaire)).to eq(@questionaire)
     end
   end
 end
