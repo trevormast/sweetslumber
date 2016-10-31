@@ -16,3 +16,29 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* colors */
+
+$orange: #db9462;
+$orange-darker: #b76d39;
+$orange-darkest: #914b19;
+$orange-lighter: #ffc49a;
+$orange-lightest: #ffdbc2;
+
+$purple: #734793;
+$purple-darker: #5a2c7b;
+$purple-darkest: #421662;
+$purple-lighter: #926dad;
+$purple-lightest: #bda2d1;
+
+body {
+  background-color: $orange-lightest;
+}
+
+
+/* NAV */
+nav.navbar.navbar-default {
+  background-color: $orange-lighter;
+  border: none;
+  color: $purple-darkest;
+}
