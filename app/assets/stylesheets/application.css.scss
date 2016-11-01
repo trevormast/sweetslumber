@@ -17,28 +17,158 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import url('https://fonts.googleapis.com/css?family=Shrikhand|Source+Sans+Pro');
+
+/* */
+$shrikhand: 'Shrikhand', cursive;
+$source-sans: 'Source Sans Pro', sans-serif;
+
+
 /* colors */
 
 $orange: #db9462;
-$orange-darker: #b76d39;
+$orange-darker: #EA844B;
 $orange-darkest: #914b19;
 $orange-lighter: #ffc49a;
 $orange-lightest: #ffdbc2;
+$orange-lighter-trans: rgba(255, 255, 255, 0.5);
 
 $purple: #734793;
 $purple-darker: #5a2c7b;
-$purple-darkest: #421662;
+// $purple-darkest: #421662;
+$purple-darkest: #210335;
 $purple-lighter: #926dad;
 $purple-lightest: #bda2d1;
 
-body {
-  background-color: $orange-lightest;
+$yellow: #ffeeaa;
+
+$overlay: linear-gradient(45deg, rgba(255,196,154, 0.75), rgba(189,162,209, 0.5));
+
+h1, h2, h3, h4 {
+  font-family: $source-sans;
 }
 
+p, a, td {
+  font-family: $source-sans;
+  font-size: 18px;
+}
+
+a {
+  color: $purple-lighter;
+}
+
+body {
+
+  background: white;
+}
+
+.btn {
+  font-size: 18px;
+  border-radius: 0;
+}
+
+a.btn.btn-default, .btn.btn-primary {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid $purple-lightest;
+  color: $purple-darkest;
+  margin-bottom: 10px;
+}
+
+a.btn.btn-default:hover, .btn.btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+p.alert {
+  margin-bottom: 0;
+}
+
+.nav-pills > li > a {
+  border-radius: 0;
+}
+/* MAIN HEADER */
+
+.brand-wrapper {
+  text-align: center;
+  margin-bottom: 30px;
+  // border-bottom: 5px inset rgba(0, 0, 0, 0.225);
+}
+
+.brand-wrapper h1 {
+  font-family: $shrikhand;
+  font-weight: 600;
+  // color: #210335;
+  font-size: 60px;
+  // text-shadow: 2px 2px $orange-lighter-trans, -2px -2px $orange-lighter-trans;
+}
 
 /* NAV */
 nav.navbar.navbar-default {
-  background-color: $orange-lighter;
+  border-radius: 5px;
+  background-color: $purple-lightest;
+  // border: 1px solid rgba(255, 255, 255, 0.25);
   border: none;
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > p,
+.navbar-default .navbar-text, .navbar-default .navbar-link {
+  color: $purple-darker;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: $yellow;
+}
+
+.navbar-default .navbar-brand {
   color: $purple-darkest;
+}
+
+.navbar-default .navbar-brand:hover {
+  padding-right: 8px;
+  font-size: 19px;
+  color: $yellow;
+}
+
+.nav.nav-pills > li > a.btn.btn-primary {
+  margin-right: auto;
+  margin-left: auto;
+  background-color: $purple-lightest;
+  border: none;
+}
+
+.nav.nav-pills > li > a.btn.btn-primary:hover {
+  background-color: $purple-lighter;
+}
+/* CONTAINERS */
+#main-container {
+  background-image: $overlay, url('space-pic-crop.jpeg');
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+
+.col-inner {
+  padding: 10px 10px 10px 10px;
+}
+
+.col-inner.main {
+  background-color: $orange-lighter-trans;
+  // border-radius: 5px;
+}
+
+/* TABLES */
+table.full-width {
+  width: 100%;
+}
+
+.table td {
+  border-top: 1px solid $purple-lightest !important;
+}
+
+.table th {
+  border-bottom: 2px solid $purple-lightest !important;
+}
+
+/* FORMS */
+.form-control {
+  background-color: $orange-lighter-trans !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
 }
