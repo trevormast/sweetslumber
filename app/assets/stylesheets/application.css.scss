@@ -17,11 +17,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import url('https://fonts.googleapis.com/css?family=Shrikhand|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro');
 
 /* */
-$shrikhand: 'Shrikhand', cursive;
 $source-sans: 'Source Sans Pro', sans-serif;
+$princess: 'Princess Sofia', cursive;
+
 
 
 /* colors */
@@ -31,7 +32,7 @@ $orange-darker: #EA844B;
 $orange-darkest: #914b19;
 $orange-lighter: #ffc49a;
 $orange-lightest: #ffdbc2;
-$orange-lighter-trans: rgba(255, 255, 255, 0.5);
+$orange-lighter-trans: rgba(255, 255, 255, 0.225);
 
 $purple: #734793;
 $purple-darker: #5a2c7b;
@@ -50,7 +51,7 @@ h1, h2, h3, h4 {
 
 p, a, td {
   font-family: $source-sans;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 a {
@@ -94,7 +95,7 @@ p.alert {
 }
 
 .brand-wrapper h1 {
-  font-family: $shrikhand;
+  font-family: $princess;
   font-weight: 600;
   // color: #210335;
   font-size: 60px;
