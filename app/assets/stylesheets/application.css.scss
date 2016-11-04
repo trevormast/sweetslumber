@@ -70,9 +70,16 @@ header.brand {
 body {
   background: $overlay, url('space-pic-crop.jpeg');
   background-attachment: fixed;
+  position: fixed;
+  width: 100%;
 }
 
 /* NAV */
+
+.navbar {
+  min-height: 30px;
+}
+
 .navbar-default {
   background-color: $purple-lighter;
   border-radius: 0;
@@ -80,12 +87,34 @@ body {
   margin-bottom: 0;
 }
 
+.navbar-default .navbar-toggle {
+  border-color: black;
+  margin-right: 15px;
+}
+
+.navbar-default .navbar-toggle:hover {
+  background-color: $purple;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  color: black;
+  background-color: black;
+}
+
 .navbar-default .navbar-nav > li > a {
+  font-size: 18px;
+  padding: 10px 10px 10px 10px;
   color: black;
 }
 
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: inherit;
+}
+
 /* CONTAINERS */
-.container-fluid {
+.container-fluid.full-width {
   padding: 0 0 0 0;
 }
 #header-container {
@@ -97,4 +126,27 @@ body {
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   overflow: scroll
+}
+
+#main-content h1, #main-content h2, #main-content p,
+#main-content a, #main-content td, #main-content th {
+  color: white;
+}
+
+
+
+/* TABLES */
+
+
+/* DESKTOP */
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
 }
