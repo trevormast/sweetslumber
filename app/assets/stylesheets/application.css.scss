@@ -17,11 +17,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro|Raleway');
 
 /* */
 $source-sans: 'Source Sans Pro', sans-serif;
 $princess: 'Princess Sofia', cursive;
+$raleway: 'Raleway', sans-serif;
 
 
 
@@ -46,11 +47,11 @@ $yellow: #ffeeaa;
 $overlay: linear-gradient(45deg, rgba(255,196,154, 0.75), rgba(189,162,209, 0.5));
 
 h1, h2, h3, h4 {
-  font-family: $source-sans;
+  font-family: $raleway;
 }
 
 p, a, td {
-  font-family: $source-sans;
+  font-family: $raleway;
   font-size: 20px;
 }
 
@@ -125,13 +126,15 @@ body {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  overflow: scroll
+  overflow: scroll;
+  color: white;
+
 }
 
-#main-content h1, #main-content h2, #main-content p,
-#main-content a, #main-content td, #main-content th {
-  color: white;
-}
+// #main-content h1, #main-content h2, #main-content p,
+// #main-content a, #main-content td, #main-content th {
+//   color: white;
+// }
 
 
 
