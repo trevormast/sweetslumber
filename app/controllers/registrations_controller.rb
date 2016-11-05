@@ -1,5 +1,4 @@
 class RegistrationsController < ApplicationController
-
   def new
     @workshop = Workshop.find(params[:workshop_id])
 
@@ -11,7 +10,7 @@ class RegistrationsController < ApplicationController
     @questionaire = Questionaire.new(questionaire_params[:questionaire])
 
     @registration = Registration.new(workshop_id: params[:workshop_id],
-                                      user_id: current_user)
+                                      user_id: current_user.id)
     @registration.questionaire = @questionaire
 
     respond_to do |format|

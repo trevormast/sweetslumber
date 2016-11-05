@@ -5,6 +5,6 @@ class Registration < ActiveRecord::Base
 
   validates :user_id, uniqueness: { scope: :workshop_id, message: "Already Registered" }
   validates_presence_of :workshop_id
-  accepts_nested_attributes_for :questionaire
+  # accepts_nested_attributes_for :questionaire
   validates_associated :questionaire
 end
