@@ -17,7 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro|Raleway:400,900');
 
 /* */
 $source-sans: 'Source Sans Pro', sans-serif;
@@ -37,7 +37,6 @@ $orange-lighter-trans: rgba(255, 255, 255, 0.225);
 
 $purple: #734793;
 $purple-darker: #5a2c7b;
-// $purple-darkest: #421662;
 $purple-darkest: #210335;
 $purple-lighter: #926dad;
 $purple-lightest: #bda2d1;
@@ -49,6 +48,7 @@ $white50: rgba(255, 255, 255, 0.5);
 $white75: rgba(255, 255, 255, 0.75);
 
 $overlay: linear-gradient(45deg, rgba(255,196,154, 0.75), rgba(189,162,209, 0.5));
+$image-overlay: linear-gradient(180deg, rgba(33, 3, 53, 0.25), rgba(33, 3, 53, 0.25));
 
 body {
   background: $overlay, url('space-pic-crop.jpeg');
@@ -63,7 +63,7 @@ h1, h2, h3, h4 {
 
 p, a, td, th {
   font-family: $raleway;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 // a {
@@ -94,16 +94,27 @@ p, a, td, th {
   color: white;
 }
 
-header.brand {
+header.brand, header.section-header {
   text-align: center;
 }
 
-.brand > h1 {
+.brand > h1, .section-header > h1 {
   font-family: $princess;
   font-size: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
+.section-header > h1 {
+  font-family: $raleway;
+  font-size: 36px;
+}
 
+.navbar-nav > li > .dropdown-menu {
+  background-color: $purple-lightest;
+  color: white;
+  border: none;
+}
 
 /* NAV */
 
@@ -168,8 +179,21 @@ header.brand {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  overflow: scroll;
+  overflow-y: scroll;
   color: white;
+}
+
+#content {
+  margin-top: 45px;
+}
+
+.row {
+  // margin-top: 30px;
+}
+
+.test {
+  border: 2px solid $purple-lightest;
+  height: 363px;
 }
 
 // #main-content h1, #main-content h2, #main-content h3 {
@@ -178,6 +202,13 @@ header.brand {
 
 .col-header {
   text-align: center;
+}
+
+.page-header > h1 {
+  font-family: $princess;
+  font-size: 45px;
+  // margin-top: 30px;
+  // margin-bottom: 30px;
 }
 
 
@@ -192,6 +223,39 @@ header.brand {
   border-color: $orange-lighter-trans;
 }
 
+/* IMAGES*/
+.image-wrapper {
+  background: $orange-lighter-trans;
+  height: 363px;
+  border-radius: 5px;
+}
+
+.image-wrapper#one {
+  background: url("baby-crop.jpeg");
+  background-size: 100% 100%;
+}
+
+.image-wrapper#two {
+  background: url("sleep-kid-crop.jpg");
+  background-size: 100% 100%;
+}
+
+.image-wrapper#three {
+  background: url("baby-hand-crop.jpg");
+  background-size: 100% 100%;
+}
+
+.image-text-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.image-text-overlay > h1 {
+}
 
 /* DESKTOP */
 @media (min-width: 768px) {
@@ -205,7 +269,8 @@ header.brand {
       text-align: center;
   }
 
-  .nav.navbar-nav {
-     margin-left: 75px;
+  .nav.navbar-nav.centered {
+     position: absolute;
+     left: 37%;
   }
 }

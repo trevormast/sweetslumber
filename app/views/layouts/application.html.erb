@@ -29,11 +29,17 @@
           </button>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav centered">
             <li><%= link_to("Home", root_url) %></li>
-            <li><%= link_to("About", about_url) %></li>
-            <li><%= link_to("Schedule", workshops_url) %></li>
             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret" ></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Your Teacher</a></li>
+                <li><a href="#">Your Class</a></li>
+              </ul>
+            </li>
+            <li><%= link_to("Schedule", workshops_url) %></li>
+            <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Action</a></li>
@@ -44,12 +50,18 @@
                 <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
-            </li>
+            </li> -->
+            <li><%= link_to("Contact", "#") %></li>
           </ul>
-          <ul class="nav navbar-text navbar-right">
+          <ul class="nav navbar-nav navbar-text navbar-right">
 
           <% if user_signed_in?  %>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret" ></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              </ul>
+
           <% else %>
             <li><%= link_to("Login", new_user_session_path) %></li>
           <% end %>
@@ -62,7 +74,7 @@
   </div>
 
   <div class="container-fluid" id="main-content">
-    <div class="container">
+    <div class="container" id="content">
       <%= yield %>
     </div>
   </div>
