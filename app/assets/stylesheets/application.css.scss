@@ -66,9 +66,14 @@ p, a, td, th {
   font-size: 16px;
 }
 
-// a {
-//   color: $purple-lighter;
-// }
+a {
+  color: $yellow;
+}
+
+th {
+  font-size: 18px;
+  font-weight: 400;
+}
 
 .btn-default {
   border:2px solid $purple-lighter;
