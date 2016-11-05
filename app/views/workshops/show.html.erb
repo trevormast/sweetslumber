@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+
 <p>
   <strong>Location:</strong>
   <%= @workshop.location.name %>
@@ -27,7 +28,7 @@
 
 <% if admin_present? %>
   <h1>Registered Users</h1>
-  <table class="table table-hover">
+  <table class="table">
     <thead>
       <th>Name</th>
       <th>Email</th>

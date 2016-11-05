@@ -16,3 +16,261 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro|Raleway:400,900');
+
+/* */
+$source-sans: 'Source Sans Pro', sans-serif;
+$princess: 'Princess Sofia', cursive;
+$raleway: 'Raleway', sans-serif;
+
+
+
+/* colors */
+
+$orange: #db9462;
+$orange-darker: #EA844B;
+$orange-darkest: #914b19;
+$orange-lighter: #ffc49a;
+$orange-lightest: #ffdbc2;
+$orange-lighter-trans: rgba(255, 255, 255, 0.225);
+
+$purple: #734793;
+$purple-darker: #5a2c7b;
+$purple-darkest: #210335;
+$purple-lighter: #926dad;
+$purple-lightest: #bda2d1;
+
+$yellow: #ffeeaa;
+
+$white25: rgba(255, 255, 255, 0.25);
+$white50: rgba(255, 255, 255, 0.5);
+$white75: rgba(255, 255, 255, 0.75);
+
+$overlay: linear-gradient(45deg, rgba(255,196,154, 0.75), rgba(189,162,209, 0.5));
+$image-overlay: linear-gradient(180deg, rgba(33, 3, 53, 0.25), rgba(33, 3, 53, 0.25));
+
+body {
+  background: $overlay, url('space-pic-crop.jpeg');
+  background-attachment: fixed;
+  position: fixed;
+  width: 100%;
+}
+
+h1, h2, h3, h4 {
+  font-family: $raleway;
+}
+
+p, a, td, th {
+  font-family: $raleway;
+  font-size: 16px;
+}
+
+// a {
+//   color: $purple-lighter;
+// }
+
+.btn-default {
+  border:2px solid $purple-lighter;
+  background-color: transparent;
+  color: white;
+}
+
+.btn-default:hover {
+  border:2px solid $purple-lighter;
+  background-color: $white25;
+  color: white;
+}
+
+.btn-danger {
+  border:2px solid red;
+  background-color: transparent;
+  color: white;
+}
+
+.btn-danger:hover {
+  border:2px solid red;
+  background-color: $white25;
+  color: white;
+}
+
+header.brand, header.section-header {
+  text-align: center;
+}
+
+.brand > h1, .section-header > h1 {
+  font-family: $princess;
+  font-size: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.section-header > h1 {
+  font-family: $raleway;
+  font-size: 36px;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: $purple-lightest;
+  color: white;
+  border: none;
+}
+
+/* NAV */
+
+.navbar {
+  min-height: 30px;
+}
+
+.navbar-default {
+  background-color: $purple-lighter;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 0;
+}
+
+.navbar-default .navbar-toggle {
+  border: 2px solid black;
+  margin-right: 15px;
+}
+
+.navbar-default .navbar-toggle:hover {
+  background-color: $white25;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  color: black;
+  background-color: black;
+}
+
+
+.navbar-text {
+  margin: 0 0 0 0;
+}
+
+.navbar-right > li {
+  display: inline-block;
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-text.navbar-right > li > a {
+  font-size: 18px;
+  padding: 10px 10px 10px 10px;
+  color: black;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-text.navbar-right > li > a:hover,
+.navbar-text.navbar-right > li > a:focus {
+  background-color: inherit;
+}
+
+/* CONTAINERS */
+.container-fluid.full-width {
+  padding: 0 0 0 0;
+}
+#header-container {
+
+}
+
+#main-content {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+  color: white;
+}
+
+#content {
+  margin-top: 45px;
+}
+
+.row {
+  // margin-top: 30px;
+}
+
+.test {
+  border: 2px solid $purple-lightest;
+  height: 363px;
+}
+
+// #main-content h1, #main-content h2, #main-content h3 {
+//   color: $purple-lighter;
+// }
+
+.col-header {
+  text-align: center;
+}
+
+.page-header > h1 {
+  font-family: $princess;
+  font-size: 45px;
+  // margin-top: 30px;
+  // margin-bottom: 30px;
+}
+
+
+
+/* TABLES */
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+  border-color: $orange-lighter-trans;
+}
+
+/* IMAGES*/
+.image-wrapper {
+  background: $orange-lighter-trans;
+  height: 363px;
+  border-radius: 5px;
+}
+
+.image-wrapper#one {
+  background: url("baby-crop.jpeg");
+  background-size: 100% 100%;
+}
+
+.image-wrapper#two {
+  background: url("sleep-kid-crop.jpg");
+  background-size: 100% 100%;
+}
+
+.image-wrapper#three {
+  background: url("baby-hand-crop.jpg");
+  background-size: 100% 100%;
+}
+
+.image-text-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.image-text-overlay > h1 {
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+  .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+  }
+
+  .navbar .navbar-collapse {
+      text-align: center;
+  }
+
+  .nav.navbar-nav.centered {
+     position: absolute;
+     left: 37%;
+  }
+}
