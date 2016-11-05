@@ -15,7 +15,7 @@
     <%= f.fields_for :questionaire do |ff| %>
       <div class="field form-group">
         <%= ff.label :baby_name %><br>
-        <%= ff.text_field :baby_name, class: 'form-control' %>
+        <%= ff.text_field :baby_name, class: 'form-control', placeholder: "What is your baby's name?" %>
       </div>
       <div class="field form-group">
         <%= ff.label :baby_dob %><br>
@@ -27,7 +27,7 @@
       </div>
       <div class="field form-group">
         <%= ff.label :naps_per_day %><br>
-        <%= ff.number_field :naps_per_day, class: 'form-control' %>
+        <%= ff.number_field :naps_per_day, class: 'form-control', maxlength: '2', size: '2' %>
       </div>
   </div>
   <div class="col-lg-4">
