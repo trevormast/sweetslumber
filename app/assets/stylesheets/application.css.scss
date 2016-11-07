@@ -102,7 +102,7 @@ label {
   color: white;
 }
 
-.btn.btn-default.margin-top {
+.form-row .btn.btn-default {
   margin-top: 25px;
 }
 
@@ -197,6 +197,7 @@ header.brand, header.section-header {
   background: rgba(0, 0, 0, 0.5);
   overflow-y: scroll;
   color: white;
+  padding-bottom: 45px;
 }
 
 #content {
@@ -209,6 +210,7 @@ header.brand, header.section-header {
 
 .row.form-row {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .test {
@@ -247,6 +249,12 @@ header.brand, header.section-header {
 
 select {
   color: black;
+}
+
+.form-group.form-inline.remember > input,
+.form-group.form-inline.remember > label  {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* IMAGES*/
