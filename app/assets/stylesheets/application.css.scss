@@ -57,12 +57,11 @@ body {
   width: 100%;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p, a, td, th, label {
   font-family: $raleway;
 }
 
 p, a, td, th {
-  font-family: $raleway;
   font-size: 16px;
 }
 
@@ -73,6 +72,10 @@ a {
 th {
   font-size: 18px;
   font-weight: 400;
+}
+
+label {
+  letter-spacing: 1px;
 }
 
 .btn-default {

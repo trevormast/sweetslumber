@@ -1,49 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-4">
+    <h1>Workshop Information</h1>
+    <br>
+    <p>
+      <strong>Location:</strong>
+      <%= @workshop.location.name %>
+    </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @workshop.location.name %>
-</p>
 
+    <p>
+      <strong>Subject:</strong>
+      <%= @workshop.subject %>
+    </p>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @workshop.subject %>
-</p>
+    <p>
+      <strong>Time:</strong>
+      <%= @workshop.time %>
+    </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @workshop.time %>
-</p>
-
-<p>
-  <strong>Limit:</strong>
-  <%= @workshop.limit %>
-</p>
-
-<% if admin_present? %>
-  <%= link_to 'Edit', edit_workshop_path(@workshop) %> |
-<% end %>
-  <%= link_to 'Back', workshops_path %>
-
-<% if admin_present? %>
-  <h1>Registered Users</h1>
-  <table class="table">
-    <thead>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Baby's Age By Workshop Date</th>
-      <th></th>
-    </thead>
-    <% @workshop.users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= baby_age(user, @workshop)  %></td>
-        <td><%= link_to("View Responses",
-                         user_questionaire_path(workshop_id: @workshop.id, user_id: user.id),
-                         class: 'btn btn-default' ) %></a></td>
-      </tr>
+    <p>
+      <strong>Limit:</strong>
+      <%= @workshop.limit %>
+    </p>
+  </div>
+  <div class="col-lg-8">
+    <% if admin_present? %>
+      <h1><%= pluralize(@workshop.users.length, 'Registered User' )%> </h1>
+      <table class="table">
+        <thead>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Baby's Age By Workshop Date</th>
+          <th></th>
+        </thead>
+        <% @workshop.users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= baby_age(user, @workshop)  %></td>
+            <td><%= link_to("View Responses",
+                             user_questionaire_path(workshop_id: @workshop.id, user_id: user.id),
+                             class: 'btn btn-default' ) %></a></td>
+          </tr>
+        <% end %>
+      </table>
     <% end %>
-  </table>
-<% end %>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <% if admin_present? %>
+        <%= link_to 'Edit', edit_workshop_path(@workshop) %> |
+      <% end %>
+        <%= link_to 'Back', workshops_path %>
+    </div>
+  </div>
+</div>
+
