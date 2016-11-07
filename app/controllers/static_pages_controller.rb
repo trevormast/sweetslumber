@@ -4,7 +4,11 @@ class StaticPagesController < ApplicationController
 
   end
 
-  def about
+  def about_class
+
+  end
+
+  def about_teacher
 
   end
 end
