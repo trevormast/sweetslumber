@@ -1,36 +1,41 @@
-<%= form_for(@workshop) do |f| %>
-  <% if @workshop.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
+<div class="row form-row">
+  <div class="col-lg-4">
 
-      <ul>
-      <% @workshop.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= form_for(@workshop) do |f| %>
+      <% if @workshop.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
+
+          <ul>
+          <% @workshop.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field form-group">
-    <%= f.label :location %>
-    <!-- <%= select_tag(:location, options_for_select(Location.all.map { |l| l.name }), class: 'form-control') %>  -->
-    <%= f.collection_select(:location_id, Location.all, :id, :name )  %>
-    <%= link_to("Add New Location", new_location_path) %>
-  </div>
+      <div class="field form-group form-inline">
+        <%= f.label :location %>
+        <!-- <%= select_tag(:location, options_for_select(Location.all.map { |l| l.name }), class: 'form-control') %>  -->
+        <%= f.collection_select(:location_id, Location.all, :id, :name, {}, {class: 'form-control'} )  %>
+        <%= link_to("Add New", new_location_path) %>
+      </div>
 
-  <div class="field form-group">
-    <%= f.label :subject %><br>
-    <%= f.text_field :subject, class: 'form-control' %>
+      <div class="field form-group">
+        <%= f.label :subject %><br>
+        <%= f.text_field :subject, class: 'form-control' %>
+      </div>
+      <div class="field form-group form-inline">
+        <%= f.label :time %><br>
+        <%= f.datetime_select :time, {}, class: 'form-control' %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :limit %><br>
+        <%= f.number_field :limit, class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= f.submit(class: 'btn btn-default')%>
+      </div>
+    <% end %>
   </div>
-  <div class="field form-group">
-    <%= f.label :time %><br>
-    <%= f.datetime_select :time, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :limit %><br>
-    <%= f.number_field :limit, class: 'form-control' %>
-  </div>
-  <div class="actions">
-    <%= f.submit(class: 'btn btn-primary')%>
-  </div>
-<% end %>
+</div>

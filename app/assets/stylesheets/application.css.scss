@@ -57,18 +57,26 @@ body {
   width: 100%;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p, a, td, th, label {
   font-family: $raleway;
 }
 
 p, a, td, th {
-  font-family: $raleway;
   font-size: 16px;
 }
 
-// a {
-//   color: $purple-lighter;
-// }
+a {
+  color: $yellow;
+}
+
+th {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+label {
+  letter-spacing: 1px;
+}
 
 .btn-default {
   border:2px solid $purple-lighter;
@@ -94,6 +102,10 @@ p, a, td, th {
   color: white;
 }
 
+.form-row .btn.btn-default {
+  margin-top: 25px;
+}
+
 header.brand, header.section-header {
   text-align: center;
 }
@@ -114,6 +126,10 @@ header.brand, header.section-header {
   background-color: $purple-lightest;
   color: white;
   border: none;
+}
+
+.form-head.margin-bottom {
+  margin-bottom: 45px;
 }
 
 /* NAV */
@@ -181,6 +197,7 @@ header.brand, header.section-header {
   background: rgba(0, 0, 0, 0.5);
   overflow-y: scroll;
   color: white;
+  padding-bottom: 45px;
 }
 
 #content {
@@ -189,6 +206,11 @@ header.brand, header.section-header {
 
 .row {
   // margin-top: 30px;
+}
+
+.row.form-row {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .test {
@@ -227,6 +249,12 @@ header.brand, header.section-header {
 
 select {
   color: black;
+}
+
+.form-group.form-inline.remember > input,
+.form-group.form-inline.remember > label  {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* IMAGES*/
