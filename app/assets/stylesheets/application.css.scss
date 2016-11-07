@@ -102,6 +102,10 @@ label {
   color: white;
 }
 
+.btn.btn-default.margin-top {
+  margin-top: 25px;
+}
+
 header.brand, header.section-header {
   text-align: center;
 }
@@ -122,6 +126,10 @@ header.brand, header.section-header {
   background-color: $purple-lightest;
   color: white;
   border: none;
+}
+
+.form-head.margin-bottom {
+  margin-bottom: 45px;
 }
 
 /* NAV */
@@ -197,6 +205,10 @@ header.brand, header.section-header {
 
 .row {
   // margin-top: 30px;
+}
+
+.row.form-row {
+  margin-top: 30px;
 }
 
 .test {
