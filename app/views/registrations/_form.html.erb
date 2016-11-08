@@ -12,7 +12,9 @@
           </ul>
         </div>
       <% end %>
+
     <%= f.fields_for :questionaire do |ff| %>
+      <%= f.hidden_field :stripe_card_token %>
       <div class="form-head margin-bottom">
         <h4>Please fill out this quick questionnaire.</h4>
       </div>
@@ -73,10 +75,29 @@
         <%= ff.text_field :referred_by, class: 'form-control' %>
       </div>
     <% end %>
-    <div class="actions">
-        <%= f.button 'Register', type: "submit", class: 'btn btn-default margin-top' %>
-    </div>
+      <div class="actions">
+          <%= f.button 'Register', type: "submit", class: 'btn btn-default margin-top' %>
+      </div>
   </div>
 </div>
+<div class="row">
+  <div class="field form-group form-inline">
+    <%= label_tag :card_number, "Credit Card Number" %>
+    <%= text_field_tag :card_number, nil, name: nil, class: 'form-control' %>
+  </div>
+  <div class="field form-group form-inline">
+    <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+    <%= text_field_tag :card_code, nil, name: nil, class: 'form-control' %>
+  </div>
+  <div class="field form-group form-inline">
+    <%= label_tag :card_month, "Card Expiration" %>
+    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", class: 'form-control'} %>
+    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", class: 'form-control'} %>
+  </div>
+</div>
+<div id="stripe_error">
+  <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+</div>
+
 
   <% end %>
