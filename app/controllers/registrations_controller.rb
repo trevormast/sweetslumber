@@ -1,3 +1,5 @@
+require 'pry'
+
 class RegistrationsController < ApplicationController
   def new
     @workshop = Workshop.find(params[:workshop_id])
@@ -7,18 +9,19 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    @questionaire = Questionaire.new(questionaire_params[:questionaire])
 
     @registration = Registration.new(workshop_id: params[:workshop_id],
                                       user_id: current_user.id)
-    @registration.questionaire = @questionaire
+    @registration.add_questionaire(registration_params[:questionaire])
+
+    @stripe_card_token = params['registration']['stripe_card_token']
 
     respond_to do |format|
-      if @registration.save_with_payment(params['registration']['stripe_card_token'])
+      if @registration.save_with_payment(@stripe_card_token)
           format.html { redirect_to workshop_path(params[:workshop_id]), notice: 'Registration was successful.' }
           format.json { render :show, status: :created, location: @registration }
         else
-          format.html { redirect_to new_workshop_registration_path(params[:workshop_id]), alert: "Already Registered." }
+          format.html { redirect_to new_workshop_registration_path(params[:workshop_id]), alert: "There was a problem with your registration." }
           format.json { render json: @registration.errors, status: :unprocessable_entity }
       end
     end
@@ -26,7 +29,7 @@ class RegistrationsController < ApplicationController
 
   private
 
-    def questionaire_params
+    def registration_params
       params.require(:registration).permit(questionaire:
                                             [:baby_name,
                                             :baby_dob,
@@ -42,6 +45,7 @@ class RegistrationsController < ApplicationController
                                             :sleep_goal,
                                             :referred_by])
     end
+
 end
 
 # Stripe Response Example

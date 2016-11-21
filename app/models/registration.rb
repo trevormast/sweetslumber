@@ -27,4 +27,9 @@ class Registration < ActiveRecord::Base
     errors.add :base, "There was a problem with your credit card."
     false
   end
+
+  def add_questionaire(questionaire_params)
+    questionaire = Questionaire.new(questionaire_params)
+    self.questionaire = questionaire
+  end
 end
