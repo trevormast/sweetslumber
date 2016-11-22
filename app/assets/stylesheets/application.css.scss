@@ -84,7 +84,9 @@ label {
   color: white;
 }
 
-.btn-default:hover {
+
+.btn-default:hover, .btn-default:active,
+.btn-default:focus {
   border:2px solid $purple-lighter;
   background-color: $white25;
   color: white;
@@ -218,6 +220,16 @@ header.brand, header.section-header {
   height: 363px;
 }
 
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+    margin-bottom: 15px;
+}
+
+#stripe_error {
+  color: red;
+}
+
 // #main-content h1, #main-content h2, #main-content h3 {
 //   color: $purple-lighter;
 // }
@@ -233,7 +245,10 @@ header.brand, header.section-header {
   // margin-bottom: 30px;
 }
 
-
+/* MODALS */
+.modal p, .modal a, .modal h4, .modal label {
+  color: black;
+}
 
 /* TABLES */
 .table > thead > tr > th,

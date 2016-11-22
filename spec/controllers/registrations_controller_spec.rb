@@ -1,6 +1,9 @@
 require 'rails_helper'
+require 'stripe_mock'
 
 RSpec.describe RegistrationsController, type: :controller do
+  let(:stripe_helper) { StripeMock.create_test_helper }
+
   before do
     @user = FactoryGirl.create(:user)
     @location = FactoryGirl.create(:location)
@@ -23,34 +26,47 @@ RSpec.describe RegistrationsController, type: :controller do
     end
   end
 
-  describe 'GET create' do
+  describe 'POST create' do
     before do
       login_with @user
+      StripeMock.start
+    end
+    after do
+      StripeMock.stop
     end
 
     context 'with valid params' do
+      let(:valid_params)  {
+        { baby_name: 'baby',
+          baby_dob: 'October 16 2015'.to_datetime,
+          nap_location: 'crib',
+          night_location: 'crib',
+          desired_sleep_location: 'crib',
+          nap_routine: 'none',
+          night_routine: 'none',
+          naps_per_day: 2,
+          bedtime: '12:00 PM'.to_time,
+          sleep_obstacle: 'none',
+          nightwakings: 2,
+          sleep_goal: 'none',
+          referred_by: 'no one'
+        }
+      }
+      let(:comparable_params) {
+        valid_params.except(:baby_dob, :bedtime)
+      }
+
+      let(:card_token) { stripe_helper.generate_card_token }
+
       before do
-        @valid_params = { baby_name: 'baby',
-                          baby_dob: DateTime.now,
-                          nap_location: 'crib',
-                          night_location: 'crib',
-                          desired_sleep_location: 'crib',
-                          nap_routine: 'none',
-                          night_routine: 'none',
-                          naps_per_day: 2,
-                          bedtime: Time.now,
-                          sleep_obstacle: 'none',
-                          nightwakings: 2,
-                          sleep_goal: 'none',
-                          referred_by: 'no one'
-                        }
 
         post :create, workshop_id: @workshop.id,
-                      registration: { questionaire: @valid_params }
+                      registration: { 'stripe_card_token' => card_token,
+                                      :questionaire => valid_params }
       end
 
-      it 'assigns a questionaire' do
-        expect(assigns(:questionaire)).to be_a(Questionaire)
+      it 'assigns a card token' do
+        expect(assigns(:stripe_card_token)).to eq(card_token)
       end
 
       it 'assigns a registration' do
@@ -58,8 +74,7 @@ RSpec.describe RegistrationsController, type: :controller do
       end
 
       it 'associates registration and questionaire' do
-        expect(assigns(:registration).questionaire).to eq(assigns(:questionaire))
-        expect(assigns(:questionaire).registration).to eq(assigns(:registration))
+        expect(assigns(:registration).questionaire).to have_attributes(comparable_params)
       end
 
       it 'redirects to workshop path' do
@@ -68,11 +83,14 @@ RSpec.describe RegistrationsController, type: :controller do
     end
 
     context 'with invalid params' do
+      let(:invalid_params) {
+        { questionaire: { gar: 'bage' }}
+      }
+
       before do
-        @invalid_params = { questionaire: { gar: 'bage' }}
 
         post :create, workshop_id: @workshop.id,
-                      registration: { questionaire: @invalid_params }
+                      registration: { questionaire: invalid_params }
       end
 
       it 'redirects to new workshop registration path' do
