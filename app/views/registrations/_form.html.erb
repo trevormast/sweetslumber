@@ -146,6 +146,9 @@
               <%= label_tag :card_code, "Security Code (CVV)" %>
               <%= text_field_tag :card_code, nil, name: nil, class: 'form-control', :required => 'true' %>
             </div>
+            <div id="stripe_error">
+              <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+            </div>
           </div>
         </div>
       </div>
@@ -157,10 +160,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<div id="stripe_error">
-  <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
 </div>
 
 
