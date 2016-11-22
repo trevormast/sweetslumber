@@ -37,6 +37,9 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'simplecov', :require => false
   gem 'stripe-ruby-mock', '~> 2.3.1', :require => 'stripe_mock'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development do
