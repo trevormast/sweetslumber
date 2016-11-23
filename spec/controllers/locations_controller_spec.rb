@@ -78,7 +78,7 @@ RSpec.describe LocationsController, type: :controller do
 
         it "redirects to the created location" do
           post :create, {location: valid_attributes}
-          expect(response).to redirect_to(Location.last)
+          expect(response).to redirect_to(new_workshop_path)
         end
       end
 
