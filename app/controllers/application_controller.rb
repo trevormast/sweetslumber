@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
+  def admin_only
+    current_user && current_user.admin? ? true : redirect_to(root_path, alert: "You are not authorized to access this page")
+  end
 end

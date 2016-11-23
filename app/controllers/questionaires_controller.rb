@@ -1,5 +1,6 @@
 class QuestionairesController < ApplicationController
-  # before_action :set_questionaire, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only
+
 
   def show
     @questionaire = Registration.find_by(user_id: params[:user_id],
