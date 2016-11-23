@@ -4,13 +4,15 @@ RSpec.describe WorkshopsController, type: :controller do
 
   before do
     @location = FactoryGirl.create(:location)
+    @user = FactoryGirl.create(:user)
+    @admin = FactoryGirl.create(:user, email: 'admin@web.net', admin: true)
   end
 
   let(:valid_attributes) {
     {
       location_id: @location.id,
       subject: 'workshop subject',
-      time: DateTime.now,
+      time: 1.month.from_now,
       limit: 20
     }
   }
@@ -25,10 +27,13 @@ RSpec.describe WorkshopsController, type: :controller do
 
   context 'when not signed in' do
     describe "GET #index" do
-      it "assigns all workshops as @workshops" do
+      it "assigns upcoming workshops as @workshops" do
         workshop = Workshop.create! valid_attributes
+        past_workshop = Workshop.create! valid_attributes.merge({ time: 1.month.ago })
         get :index
         expect(assigns(:workshops)).to eq([workshop])
+        expect(assigns(:workshops)).not_to include(past_workshop)
+
       end
     end
 
@@ -43,14 +48,16 @@ RSpec.describe WorkshopsController, type: :controller do
 
   context 'when signed in' do
     before do
-      login_with :user
+      login_with @user
     end
 
     describe "GET #index" do
-      it "assigns all workshops as @workshops" do
+      it "assigns upcoming workshops as @workshops" do
         workshop = Workshop.create! valid_attributes
+        past_workshop = Workshop.create! valid_attributes.merge({ time: 1.month.ago })
         get :index
         expect(assigns(:workshops)).to eq([workshop])
+        expect(assigns(:workshops)).not_to include(past_workshop)
       end
     end
 
@@ -164,6 +171,23 @@ RSpec.describe WorkshopsController, type: :controller do
         workshop = Workshop.create! valid_attributes
         delete :destroy, {id: workshop.to_param}
         expect(response).to redirect_to(workshops_url)
+      end
+    end
+  end
+
+  context "when signed in as admin" do
+    before do
+      login_with @admin
+    end
+
+    describe 'GET #index' do
+      it 'assigns all workshops as @workshops' do
+        workshop = Workshop.create! valid_attributes
+        past_workshop = Workshop.create! valid_attributes.merge({ time: 1.month.ago })
+        get :index
+        expect(assigns(:workshops)).to include(workshop)
+        expect(assigns(:workshops)).to include(past_workshop)
+
       end
     end
   end

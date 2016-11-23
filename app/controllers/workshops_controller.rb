@@ -7,7 +7,7 @@ class WorkshopsController < ApplicationController
   # GET /workshops
   # GET /workshops.json
   def index
-    @workshops = Workshop.all
+    @workshops = current_user && current_user.admin? ? Workshop.sorted_by_time : Workshop.upcoming
   end
 
   # GET /workshops/1
