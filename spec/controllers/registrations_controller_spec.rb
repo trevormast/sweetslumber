@@ -59,7 +59,7 @@ RSpec.describe RegistrationsController, type: :controller do
       let(:card_token) { stripe_helper.generate_card_token }
 
       before do
-
+        ActionMailer::Base.deliveries = []
         post :create, workshop_id: @workshop.id,
                       registration: { 'stripe_card_token' => card_token,
                                       :questionaire => valid_params }
@@ -75,6 +75,10 @@ RSpec.describe RegistrationsController, type: :controller do
 
       it 'associates registration and questionaire' do
         expect(assigns(:registration).questionaire).to have_attributes(comparable_params)
+      end
+
+      it 'sends homework' do
+        expect(ActionMailer::Base.deliveries.count).to eq(1)
       end
 
       it 'redirects to workshop path' do
