@@ -2,6 +2,7 @@ require 'pry'
 
 class WorkshopsController < ApplicationController
   before_action :set_workshop, only: [:show, :edit, :register, :update, :destroy]
+  before_action :admin_only, only: [:new, :edit, :create, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   # GET /workshops
