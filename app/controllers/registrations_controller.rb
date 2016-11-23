@@ -18,6 +18,9 @@ class RegistrationsController < ApplicationController
 
     respond_to do |format|
       if @registration.save_with_payment(@stripe_card_token)
+
+          RegistrationMailer.send_homework(current_user).deliver_later
+
           format.html { redirect_to workshop_path(params[:workshop_id]), notice: 'Registration was successful.' }
           format.json { render :show, status: :created, location: @registration }
         else

@@ -25,7 +25,7 @@
                 <td><%= date_format(workshop.time) %></td>
                 <td><%= time_format(workshop.time) %></td>
                 <td><%= workshop.limit %></td>
-                <td><%= link_to("Register", new_workshop_registration_path(workshop), class: 'btn btn-default') unless admin_present? %></td>
+                <td><%= link_to("Register", new_workshop_registration_path(workshop), class: 'btn btn-default', data: { turbolinks: false }) unless admin_present? %></td>
                 <%if admin_present?  %>
                   <td><%= link_to 'Show', workshop, class: 'btn btn-default' %></td>
                   <td><%= link_to 'Edit', edit_workshop_path(workshop), class: 'btn btn-default' %></td>
