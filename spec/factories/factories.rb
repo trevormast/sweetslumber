@@ -20,7 +20,7 @@ FactoryGirl.define do
     location
 
     subject 'New Class'
-    time Time.now
+    time 1.month.from_now
     limit 20
   end
 

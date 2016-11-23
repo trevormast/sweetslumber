@@ -7,11 +7,11 @@ RSpec.describe "the registration process", :type => :feature, :js => :true do
 
   before :each do
     sign_up user
+    visit "/workshops/#{workshop.id}/registrations/new"
   end
 
   context 'with valid credit card' do
     it "registers a new class" do
-      visit "/workshops/#{workshop.id}/registrations/new"
       submit_registration_form
 
       expect(page).to have_content 'Registration was successful'
@@ -20,7 +20,6 @@ RSpec.describe "the registration process", :type => :feature, :js => :true do
 
   context 'with invalid credit card number' do
     it 'does not register a new class' do
-      visit "/workshops/#{workshop.id}/registrations/new"
 
       submit_registration_form(42424242)
 
@@ -30,7 +29,6 @@ RSpec.describe "the registration process", :type => :feature, :js => :true do
 
   context 'with invalid credit card expiry' do
     it 'does not register a new class' do
-      visit "/workshops/#{workshop.id}/registrations/new"
 
       submit_registration_form(4242424242424242, 2016)
 
@@ -40,7 +38,6 @@ RSpec.describe "the registration process", :type => :feature, :js => :true do
 
   context 'with invalid credit card security code' do
     it 'does not register a new class' do
-      visit "/workshops/#{workshop.id}/registrations/new"
 
       submit_registration_form(4242424242424242, 2020, 1
 
