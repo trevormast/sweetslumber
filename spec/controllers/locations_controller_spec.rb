@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.describe LocationsController, type: :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Location. As you add validations to Location, be sure to
-  # adjust the attributes here as well.
+  before do
+    @user  = FactoryGirl.create(:user)
+    @admin = FactoryGirl.create(:user, email: 'admin@web.com', admin: true)
+  end
+
   let(:valid_attributes) {
     {
       name: 'New Location',
@@ -18,14 +20,16 @@ RSpec.describe LocationsController, type: :controller do
     }
   }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # LocationsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:new_attributes) {
+    {
+      name: 'newer location'
+    }
+  }
 
-  context 'when signed in' do
+
+  context 'when signed in as admin' do
     before do
-      login_with :user
+      login_with @admin
     end
     describe "GET #index" do
       it "assigns all locations as @locations" do
@@ -93,11 +97,6 @@ RSpec.describe LocationsController, type: :controller do
 
     describe "PUT #update" do
       context "with valid params" do
-        let(:new_attributes) {
-          {
-            name: 'newer location'
-          }
-        }
 
         it "updates the requested location" do
           location = Location.create! valid_attributes
@@ -146,6 +145,35 @@ RSpec.describe LocationsController, type: :controller do
         location = Location.create! valid_attributes
         delete :destroy, {id: location.to_param}
         expect(response).to redirect_to(locations_url)
+      end
+    end
+  end
+
+  context 'when signed in as user' do
+    before do
+      @location = Location.create! valid_attributes
+    end
+
+    describe "All Actions" do
+      it 'redirects to root' do
+        get :index
+        expect(response).to be_redirect
+
+        get :show, {id: @location.to_param}
+        expect(response).to be_redirect
+
+        get :edit, {id: @location.to_param}
+        expect(response).to be_redirect
+
+        post :create, {location: valid_attributes}
+        expect(response).to be_redirect
+
+        put :update, {id: @location.to_param, location: new_attributes}
+        expect(response).to be_redirect
+
+        delete :destroy, {id: @location.to_param}
+        expect(response).to be_redirect
+
       end
     end
   end
