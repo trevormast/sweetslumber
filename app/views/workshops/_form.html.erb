@@ -33,6 +33,10 @@
         <%= f.label :limit %><br>
         <%= f.number_field :limit, class: 'form-control' %>
       </div>
+      <div class="field form-group">
+        <%= f.label :price, 'Price (in cents)' %><br>
+        <%= f.number_field :price, class: 'form-control' %>
+      </div>
       <div class="actions">
         <%= f.submit(class: 'btn btn-default')%>
       </div>

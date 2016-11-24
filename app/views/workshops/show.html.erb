@@ -22,6 +22,11 @@
       <strong>Limit:</strong>
       <%= @workshop.limit %>
     </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= price_in_dollars(@workshop.price)  %>
+    </p>
   </div>
   <div class="col-lg-8">
     <% if admin_present? %>

@@ -74,7 +74,7 @@ class WorkshopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workshop_params
-      params.require(:workshop).permit(:location_id, :subject, :time, :limit)
+      params.require(:workshop).permit(:location_id, :subject, :time, :limit, :price)
     end
 
     def register_user(user)

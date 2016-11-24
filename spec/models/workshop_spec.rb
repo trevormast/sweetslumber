@@ -7,7 +7,8 @@ RSpec.describe Workshop, type: :model do
       location: @location,
       subject: 'New Class',
       time: Time.now,
-      limit: 30
+      limit: 30,
+      price: 4500
     }
   }
 
