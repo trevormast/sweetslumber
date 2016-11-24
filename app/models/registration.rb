@@ -12,13 +12,14 @@ class Registration < ActiveRecord::Base
   def save_with_payment(token)
     if valid?
       charge = Stripe::Charge.create(
-                :amount => 2000,
+                :amount => workshop.price,
                 :currency => "usd",
                 :source => token, # obtained with Stripe.js
                 :description => "Charge for Sweet Slumber Workshop",
                 :receipt_email => User.find(user_id).email,
                 :statement_descriptor => 'sweet slumber workshop'
               )
+
       self.charge_token = charge.id
       save!
     end

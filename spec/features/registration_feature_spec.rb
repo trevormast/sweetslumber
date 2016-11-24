@@ -1,6 +1,8 @@
 require 'rails_helper'
 require 'registration_feature_spec_helper'
 
+
+# https://stripe.com/docs/testing#cards for testing errors
 RSpec.describe "the registration process", :type => :feature, :js => :true do
   let(:user) { FactoryGirl.build(:user) }
   let(:workshop) { FactoryGirl.create(:workshop) }
