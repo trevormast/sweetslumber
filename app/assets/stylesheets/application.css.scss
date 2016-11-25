@@ -74,6 +74,14 @@ a {
   color: $yellow;
 }
 
+a:hover, a:focus {
+  color: $yellow;
+}
+
+.table > thead > tr > th {
+  letter-spacing: 2px;
+}
+
 th {
   font-size: 18px;
   font-weight: 400;

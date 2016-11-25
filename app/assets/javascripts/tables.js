@@ -2,8 +2,7 @@ $(document).ready(function() {
     var table = $('.datatable').DataTable( {
         responsive: true,
         bPaginate: false,
-        bFilter: false
+        bFilter: false,
+        ordering: false
     } );
-
-    // new $.fn.dataTable.FixedHeader( table );
 } );
