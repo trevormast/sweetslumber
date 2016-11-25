@@ -14,8 +14,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery.dataTables
-//= require dataTables.bootstrap
-//= require dataTables.responsive
-//= require dataTables.fixedHeader
+//= require jquery.dataTables.min.js
+//= require dataTables.bootstrap.min.js
+//= require dataTables.responsive.min.js
+//= require dataTables.fixedHeader.min.js
 //= require_tree .
