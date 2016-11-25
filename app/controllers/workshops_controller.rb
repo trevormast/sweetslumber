@@ -5,6 +5,7 @@ class WorkshopsController < ApplicationController
   before_action :admin_only, only: [:new, :edit, :create, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+
   # GET /workshops
   # GET /workshops.json
   def index
@@ -73,13 +74,19 @@ class WorkshopsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def workshop_params
-      params.require(:workshop).permit(:location_id, :subject, :time, :limit, :price)
-    end
 
     def register_user(user)
       if @workshop.users.count != @workshop.limit
         @workshop.users << user
       end
+    end
+
+    def workshop_params
+      validated_params.require(:workshop).permit(:location_id, :subject, :time, :limit, :price)
+    end
+
+    def validated_params
+      price_param = params['workshop']['price']
+      price_param.nil? ? params : params.merge('price' => price_param.split('.').join)
     end
 end
