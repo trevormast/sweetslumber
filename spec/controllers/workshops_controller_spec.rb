@@ -13,7 +13,8 @@ RSpec.describe WorkshopsController, type: :controller do
       location_id: @location.id,
       subject: 'workshop subject',
       time: 1.month.from_now,
-      limit: 20
+      limit: 20,
+      price: 4500
     }
   }
 

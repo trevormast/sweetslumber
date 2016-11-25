@@ -22,6 +22,7 @@ FactoryGirl.define do
     subject 'New Class'
     time 1.month.from_now
     limit 20
+    price 4500
   end
 
   factory :registration do

@@ -18,4 +18,8 @@ module WorkshopsHelper
   def baby_age(user, workshop)
     distance_of_time_in_words(workshop.time, user_responses(user, workshop).baby_dob, accumulate_on: :months, only: :months)
   end
+
+  def price_in_dollars(price_in_cents)
+    number_to_currency(price_in_cents / 100)
+  end
 end

@@ -2,12 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Workshop, type: :model do
 
+  let(:location) {FactoryGirl.create(:location)}
+
   let(:valid_attributes) {
     {
-      location: @location,
+      location: location,
       subject: 'New Class',
       time: Time.now,
-      limit: 30
+      limit: 30,
+      price: 4500
     }
   }
 

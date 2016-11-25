@@ -52,6 +52,7 @@ RSpec.describe RegistrationsController, type: :controller do
           referred_by: 'no one'
         }
       }
+
       let(:comparable_params) {
         valid_params.except(:baby_dob, :bedtime)
       }

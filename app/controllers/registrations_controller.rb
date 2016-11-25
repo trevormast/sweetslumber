@@ -1,5 +1,3 @@
-require 'pry'
-
 class RegistrationsController < ApplicationController
   def new
     @workshop = Workshop.find(params[:workshop_id])
