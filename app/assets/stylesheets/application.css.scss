@@ -11,6 +11,11 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require dataTables.bootstrap
+ *= require jquery.dataTables
+ *= require responsive.bootstrap
+ *= require fixedHeader.dataTables
+ *= require fixedHeader.bootstrap
  *= require_self
  */
 
