@@ -5,27 +5,33 @@
     </div>
     <div class="col-content">
       <div>
-        <table class="table">
+        <table class="table datatable">
           <thead>
             <tr>
-              <th>Location</th>
-              <th>Type</th>
               <th>Date</th>
               <th>Time</th>
-              <th>Limit</th>
+              <th>Location</th>
               <th>Price</th>
-              <th colspan="3"></th>
+              <% if admin_present? %>
+                <th></th>
+                <th></th>
+                <th></th>
+              <% else %>
+                <th></th>
+              <% end %>
+
             </tr>
           </thead>
 
           <tbody>
             <% @workshops.each do |workshop| %>
               <tr>
-                <td><%= workshop.location.name  %></td>
-                <td><%= workshop.subject %></td>
                 <td><%= date_format(workshop.time) %></td>
                 <td><%= time_format(workshop.time) %></td>
-                <td><%= workshop.limit %></td>
+                <td>
+                  <%= link_to(workshop.location.name, '#',
+                  data: { toggle: "modal", target: "#locationModal", name: workshop.location.name, address: workshop.location.address}) %>
+                </td>
                 <td><%= price_in_dollars(workshop.price) %></td>
                 <td><%= link_to("Register", new_workshop_registration_path(workshop), class: 'btn btn-default', data: { turbolinks: false }) unless admin_present? %></td>
                 <%if admin_present?  %>
@@ -48,6 +54,21 @@
   </div>
 </div>
 
+<div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="modalTitle"></h4>
+      </div>
+      <div class="modal-body">
+        <p id="modalText"></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

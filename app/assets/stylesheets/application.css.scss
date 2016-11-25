@@ -16,6 +16,11 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "dataTables.bootstrap.min.css";
+@import "jquery.dataTables.css";
+@import "responsive.bootstrap.min.css";
+@import "fixedHeader.dataTables.min.css";
+@import "fixedHeader.bootstrap.min.css";
 
 @import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro|Raleway:400,900');
 
@@ -67,6 +72,14 @@ p, a, td, th {
 
 a {
   color: $yellow;
+}
+
+a:hover, a:focus {
+  color: $yellow;
+}
+
+.table > thead > tr > th {
+  letter-spacing: 2px;
 }
 
 th {
@@ -251,6 +264,30 @@ header.brand, header.section-header {
 }
 
 /* TABLES */
+.table.datatable {
+  background-color: transparent;
+}
+
+table.dataTable tbody tr {
+  background-color: transparent;
+}
+
+.dataTables_filter label {
+  color: white;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+  color: white;
+}
+
+table.dataTable.no-footer {
+  border: none;
+}
+
 .table > thead > tr > th,
 .table > thead > tr > td,
 .table > tbody > tr > th,
