@@ -1,5 +1,3 @@
-require 'pry'
-
 class WorkshopsController < ApplicationController
   before_action :set_workshop, only: [:show, :edit, :register, :update, :destroy]
   before_action :admin_only, only: [:new, :edit, :create, :update, :destroy]
