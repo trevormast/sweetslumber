@@ -1,5 +1,5 @@
 $(document).on('ready', function() {
-  $('#locationModal').on('show.bs.modal', function (event) {
+  $('#locationModal').on('shown.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var locationName = button.data('name')
     var locationAddress = button.data('address') // Extract info from data-* attributes
