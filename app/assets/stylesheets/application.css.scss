@@ -11,16 +11,17 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require dataTables.bootstrap
+ *= require jquery.dataTables
+ *= require responsive.bootstrap
+ *= require fixedHeader.dataTables
+ *= require fixedHeader.bootstrap
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "dataTables.bootstrap.min.css";
-@import "jquery.dataTables.css";
-@import "responsive.bootstrap.min.css";
-@import "fixedHeader.dataTables.min.css";
-@import "fixedHeader.bootstrap.min.css";
+
 
 @import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro|Raleway:400,900');
 
