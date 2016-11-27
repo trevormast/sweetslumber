@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get '/class', :to => 'static_pages#about_class'
   get '/teacher', :to => 'static_pages#about_teacher'
+  get '/resources', :to => 'static_pages#resources'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
