@@ -12,4 +12,14 @@ class ApplicationController < ActionController::Base
   def admin_only
     current_user && current_user.admin? ? true : redirect_to(root_path, alert: "You are not authorized to access this page")
   end
+
+  def registered_only
+    registered_user? ? true : redirect_to(root_path, alert: "You are not authorized to access this page")
+  end
+
+  def registered_user?
+    authenticate_user! && current_user.registrations.present?
+  end
+
+  helper_method :registered_user?
 end
