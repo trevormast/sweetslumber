@@ -154,6 +154,14 @@ header.brand, header.section-header {
 }
 
 /* NAV */
+#navbar {
+  text-align: center;
+}
+.nav.navbar-nav.centered {
+  display: inline-block !important;
+  margin:0;
+  float:none;
+}
 
 .navbar {
   min-height: 30px;
@@ -186,7 +194,8 @@ header.brand, header.section-header {
 }
 
 .navbar-right > li {
-  display: inline-block;
+  position: absolute;
+  right:0;
 }
 
 .navbar-default .navbar-nav > li > a,
@@ -355,18 +364,18 @@ select {
 
 /* DESKTOP */
 @media (min-width: 768px) {
-  .navbar .navbar-nav {
-      display: inline-block;
-      float: none;
-      vertical-align: top;
-  }
+  // .navbar .navbar-nav {
+  //     display: inline-block;
+  //     float: none;
+  //     vertical-align: top;
+  // }
 
-  .navbar .navbar-collapse {
-      text-align: center;
-  }
+  // .navbar .navbar-collapse {
+  //     text-align: center;
+  // }
 
-  .nav.navbar-nav.centered {
-     position: absolute;
-     left: 37%;
-  }
+  // .nav.navbar-nav.centered {
+  //    position: absolute;
+  //    left: 37%;
+  // }
 }
