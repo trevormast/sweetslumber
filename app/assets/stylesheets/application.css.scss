@@ -147,6 +147,7 @@ header.brand, header.section-header {
   background-color: $purple-lightest;
   color: white;
   border: none;
+  margin-top: 4.5px;
 }
 
 .form-head.margin-bottom {
@@ -157,6 +158,7 @@ header.brand, header.section-header {
 #navbar {
   text-align: center;
 }
+
 .nav.navbar-nav.centered {
   display: inline-block !important;
   margin:0;
@@ -174,12 +176,18 @@ header.brand, header.section-header {
   margin-bottom: 0;
 }
 
+.collapse-button {
+  padding-right: 10px;
+}
+
 .navbar-default .navbar-toggle {
   border: 2px solid black;
   margin-right: 15px;
 }
 
-.navbar-default .navbar-toggle:hover {
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:active {
   background-color: $white25;
 }
 
@@ -191,11 +199,6 @@ header.brand, header.section-header {
 
 .navbar-text {
   margin: 0 0 0 0;
-}
-
-.navbar-right > li {
-  position: absolute;
-  right:0;
 }
 
 .navbar-default .navbar-nav > li > a,
@@ -211,6 +214,16 @@ header.brand, header.section-header {
 .navbar-text.navbar-right > li > a:hover,
 .navbar-text.navbar-right > li > a:focus {
   background-color: inherit;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  background-color: inherit;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: inherit;
 }
 
 /* CONTAINERS */
@@ -364,18 +377,59 @@ select {
 
 /* DESKTOP */
 @media (min-width: 768px) {
-  // .navbar .navbar-nav {
-  //     display: inline-block;
-  //     float: none;
-  //     vertical-align: top;
-  // }
+  .navbar-right > li {
+    position: absolute;
+    right:0;
+  }
 
-  // .navbar .navbar-collapse {
-  //     text-align: center;
-  // }
+  .navbar-header > h2 {
+    display: none;
+  }
+}
 
-  // .nav.navbar-nav.centered {
-  //    position: absolute;
-  //    left: 37%;
-  // }
+/* MOBILE */
+
+@media screen and (max-width: 736px) {
+
+  /* NAV */
+  .navbar-header > h2 {
+    margin: 0 0 0 10px;
+  }
+
+  .navbar-header > h2 > .navbar-brand {
+    font-family: $princess;
+    font-size: 28px;
+    color: black;
+  }
+
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: $purple-darkest;
+  }
+
+  .nav.navbar-nav.centered {
+    width: 100%;
+  }
+
+  .navbar-nav.centered .open .dropdown-menu {
+    margin-bottom: 0;
+  }
+
+  .navbar-nav .open .dropdown-menu {
+    margin-bottom: -11px;
+  }
+
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: black;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    background-color: $purple-lightest;
+  }
+
+  /* CONTAINERS */
+
+  header.brand {
+    display: none;
+  }
+
 }
