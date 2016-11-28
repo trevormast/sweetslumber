@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery with: :exception
 
+  include ApplicationHelper
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
@@ -16,10 +18,4 @@ class ApplicationController < ActionController::Base
   def registered_only
     registered_user? ? true : redirect_to(root_path, alert: "You are not authorized to access this page")
   end
-
-  def registered_user?
-    authenticate_user! && current_user.registrations.present?
-  end
-
-  helper_method :registered_user?
 end
