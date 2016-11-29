@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def registered_only
-    registered_user? ? true : redirect_to(root_path, alert: "You are not authorized to access this page")
+    registered_user? ? true : redirect_to(root_path, alert: "Please register for a workshop to access this page.")
   end
 end
