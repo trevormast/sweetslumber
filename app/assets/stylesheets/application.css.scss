@@ -154,6 +154,11 @@ header.brand, header.section-header {
   margin-bottom: 45px;
 }
 
+.alert {
+  margin-bottom: 0;
+  text-align: center;
+}
+
 /* NAV */
 #navbar {
   text-align: center;
@@ -270,6 +275,9 @@ header.brand, header.section-header {
   color: red;
 }
 
+.center-text {
+  text-align: center;
+}
 // #main-content h1, #main-content h2, #main-content h3 {
 //   color: $purple-lighter;
 // }
