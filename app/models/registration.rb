@@ -24,8 +24,12 @@ class Registration < ActiveRecord::Base
       save!
     end
   rescue Stripe::InvalidRequestError => e
-    logger.error "Stripe error while creating customer: #{e.message}"
-    errors.add :base, "There was a problem with your credit card."
+    logger.error "Stripe error while creating charge: #{e.message}"
+    errors.add :base, "There was a problem with your credit card: #{e.message}"
+    false
+  rescue Stripe::CardError => e
+    logger.error "Stripe error while creating charge: #{e.message}"
+    errors.add :base, "There was a problem with your credit card: #{e.message}"
     false
   end
 
