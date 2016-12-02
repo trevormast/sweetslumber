@@ -337,6 +337,22 @@ table.dataTable.no-footer {
   border-color: $orange-lighter-trans;
 }
 
+
+#invoice {
+  color: black;
+}
+
+#invoice p,
+#invoice a,
+#invoice .table th,
+#invoice .table td {
+  font-size: 14px;
+}
+
+#invoice .table tfoot > tr > td{
+  border-top: 1px solid black;
+}
+
 /* FORMS */
 
 select {
