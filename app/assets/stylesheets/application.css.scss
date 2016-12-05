@@ -16,6 +16,8 @@
  *= require responsive.bootstrap
  *= require fixedHeader.dataTables
  *= require fixedHeader.bootstrap
+ *= require slick
+ *= require slick-theme
  *= require_self
  */
 
@@ -53,16 +55,24 @@ $white25: rgba(255, 255, 255, 0.25);
 $white50: rgba(255, 255, 255, 0.5);
 $white75: rgba(255, 255, 255, 0.75);
 
+// $green: #81D170;
+// $green: #93BB8A;
+// $green: #73996B;
+$green: #81B077;
+
 $overlay: linear-gradient(45deg, rgba(255,196,154, 0.95), rgba(189,162,209, 0.95));
 $purple-overlay: linear-gradient(45deg, rgba(189,162,209, 0.75), rgba(189,162,209, 0.75));
 $image-overlay: linear-gradient(180deg, rgba(33, 3, 53, 0.25), rgba(33, 3, 53, 0.25));
 $dark-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+$carousel-overlay: linear-gradient(90deg, rgba($green, 0), $green 40%);
 
 html {
+  overflow-x: hidden;
   height: 100%;
 }
 
 body {
+  width: auto;
   background: $dark-overlay, asset_url('space-pic-crop.jpeg');
   background-attachment: fixed;
   padding-bottom: 45px;
@@ -107,6 +117,19 @@ label {
 .btn-default:hover, .btn-default:active,
 .btn-default:focus {
   border:2px solid $purple-lighter;
+  background-color: $white25;
+  color: white;
+}
+
+.btn-carousel {
+  border: 2px solid $green;
+  background-color: transparent;
+  color: white;
+}
+
+.btn-carousel:hover, .btn-carousel:active,
+.btn-carousel:focus {
+  border: 2px solid $green;
   background-color: $white25;
   color: white;
 }
@@ -248,7 +271,7 @@ header.brand, header.section-header {
 }
 
 #content {
-  margin-top: 45px;
+  // margin-top: 45px;
 }
 
 .row {
@@ -258,6 +281,54 @@ header.brand, header.section-header {
 .row.form-row {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.row.carousel-row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.carousel {
+  height: 350px;
+  width: 100%;
+}
+
+.carousel .carousel-img:after {
+  content: "";
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.carousel > .btn.btn-carousel {
+  position: absolute;
+  bottom: 0px;
+  right: 8px;
+  z-index: 3;
+  font-size: 18px;
+  padding: 18px 30px 18px 30px;
+
+}
+
+.carousel .text-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 175px;
+  // height: 75px;
+  width: 965px;
+  color: lighten(black, 10%);
+  background: $carousel-overlay;
+  z-index: 3;
+  text-align: right;
+  padding: 15px 15px 15px 15px;
+}
+
+.carousel .text-overlay > h2 {
+  margin: 0 0 0 0;
 }
 
 .test {

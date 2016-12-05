@@ -18,4 +18,5 @@
 //= require dataTables.bootstrap
 //= require dataTables.responsive
 //= require dataTables.fixedHeader
+//= require slick
 //= require_tree .

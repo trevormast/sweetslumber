@@ -4,28 +4,47 @@
   </header>
 </div>
 <div class="row">
-  <div class="col-lg-4">
-    <div class="col-header">
-      <h2>Personalized</h2>
+  <div class="carousel-row">
+    <div class="carousel">
+      <div class="carousel-img">
+        <%= image_tag("baby-hand-crop.jpeg") %>
+      </div>
+      <div class="text-overlay">
+        <h2>Personal Plan For Your Little One</h2>
+      </div>
+      <%= link_to("Learn More", class_path, class: 'btn btn-carousel') %>
     </div>
-    <div class="col-content">
-      <p>The first few months of your baby's life are particulary crucial to the establishment of a trusting relationship. Little ones are completely dependent on their caretakers and should feel that their needs will be met. However, many infants develop an association between eating and sleep that can hinder their ability to get quality rest.  </p>
+    <div class="carousel">
+      <div class="carousel-img">
+        <%= image_tag("n131ups3hog-amanda-jordan-crop.jpg") %>
+      </div>
+      <div class="text-overlay">
+        <h2>Breastfeeding Friendly</h2>
+      </div>
+      <%= link_to("Learn More", class_path, class: 'btn btn-carousel') %>
     </div>
-  </div><div class="col-lg-4">
-    <div class="col-header">
-      <h2>Breastfeeding Friendly</h2>
-    </div>
-    <div class="col-content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra feugiat mauris, vel venenatis ex efficitur eget. Praesent ullamcorper rutrum purus vitae semper. Nulla facilisi. Duis mollis justo neque, a consectetur velit suscipit id. Nunc accumsan, nunc a volutpat rhoncus, purus augue interdum odio, in malesuada quam justo eu erat. In hac habitasse platea dictumst. Proin vitae augue quis dui pharetra mollis sed nec tortor. Suspendisse rhoncus quam non imperdiet facilisis.</p>
-    </div>
-  </div><div class="col-lg-4">
-    <div class="col-header">
-      <h2>When your child is ready</h2>
-    </div>
-    <div class="col-content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra feugiat mauris, vel venenatis ex efficitur eget. Praesent ullamcorper rutrum purus vitae semper. Nulla facilisi. Duis mollis justo neque, a consectetur velit suscipit id. Nunc accumsan, nunc a volutpat rhoncus, purus augue interdum odio, in malesuada quam justo eu erat. In hac habitasse platea dictumst. Proin vitae augue quis dui pharetra mollis sed nec tortor. Suspendisse rhoncus quam non imperdiet facilisis.</p>
+    <div class="carousel">
+      <div class="carousel-img">
+        <%= image_tag("g6neij8rqmg-amanda-jordan-crop.jpg") %>
+      </div>
+      <div class="text-overlay">
+        <h2>When Your Baby Is Ready</h2>
+      </div>
+      <%= link_to("Learn More", class_path, class: 'btn btn-carousel') %>
     </div>
   </div>
 </div>
 
 
+<!-- CAROUSEL -->
+<%= javascript_tag do %>
+
+  document.addEventListener('turbolinks:load', function(){
+    $('.carousel-row').slick({
+      infinite: true,
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 2000
+    });
+  });
+<% end %>
