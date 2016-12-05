@@ -25,12 +25,12 @@
 @import "bootstrap";
 
 
-@import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Source+Sans+Pro|Raleway:400,900');
+@import url('https://fonts.googleapis.com/css?family=Princess+Sofia|Raleway:400,900');
 
 /* */
-$source-sans: 'Source Sans Pro', sans-serif;
 $princess: 'Princess Sofia', cursive;
 $raleway: 'Raleway', sans-serif;
+
 
 
 
@@ -284,8 +284,7 @@ header.brand, header.section-header {
 }
 
 .row.carousel-row {
-  margin-left: 0;
-  margin-right: 0;
+  margin: 30px 0 0 0;
 }
 
 .carousel {
@@ -437,6 +436,34 @@ table.dataTable.no-footer {
   border-top: 1px solid black;
 }
 
+.row#testimonials .col-inner {
+  height: 225px;
+  background: rgba($purple-lighter, 0.65);
+  border-radius: 10px;
+  padding: 30px 10px;
+  text-align: center;
+}
+
+.row#testimonials span.heavy-quote {
+  width: 40px;
+  height: 40px;
+}
+
+.row#testimonials span.heavy-quote.open {
+  content: asset_url('open-quote.png');
+}
+
+.row#testimonials span.heavy-quote.closed {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  content: asset_url('close-quote.png')
+
+}
+
+.row#testimonials h3 {
+  margin: 0 0 10px 0;
+}
 /* FORMS */
 
 select {
@@ -564,6 +591,7 @@ select {
   .carousel > .button-container > .btn.btn-carousel {
     border: none;
     padding: 10px 15px 10px 15px;
+    margin-bottom: 7px;
   }
 
   .carousel#baby-hand {
@@ -584,6 +612,10 @@ select {
 
   .slick-slide img.mobile-show {
     display: block;
+  }
+
+  .row#testimonials .col-inner {
+    margin-bottom: 20px;
   }
 
 }
