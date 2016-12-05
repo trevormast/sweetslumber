@@ -3,34 +3,41 @@
     <h1>Get the rest you need to take the best care of your baby.</h1>
   </header>
 </div>
-<div class="row">
-  <div class="carousel-row">
-    <div class="carousel">
-      <div class="carousel-img">
-        <%= image_tag("baby-hand-crop.jpeg") %>
-      </div>
-      <div class="text-overlay">
-        <h2>Personal Plan For Your Little One</h2>
-      </div>
-      <%= link_to("Learn More", class_path, class: 'btn btn-carousel') %>
+<div class="row carousel-row">
+  <div class="carousel">
+    <div class="carousel-img">
+      <%= image_tag("baby-hand-crop.jpeg", class: 'mobile-hide') %>
+      <%= image_tag("baby-hand-mobile", class: 'mobile-show') %>
     </div>
-    <div class="carousel">
-      <div class="carousel-img">
-        <%= image_tag("n131ups3hog-amanda-jordan-crop.jpg") %>
-      </div>
-      <div class="text-overlay">
-        <h2>Breastfeeding Friendly</h2>
-      </div>
-      <%= link_to("Learn More", class_path, class: 'btn btn-carousel') %>
+    <div class="text-overlay">
+      <h2>Personal Plan For Your Little One</h2>
     </div>
-    <div class="carousel">
-      <div class="carousel-img">
-        <%= image_tag("g6neij8rqmg-amanda-jordan-crop.jpg") %>
-      </div>
-      <div class="text-overlay">
-        <h2>When Your Baby Is Ready</h2>
-      </div>
-      <%= link_to("Learn More", class_path, class: 'btn btn-carousel') %>
+    <div class="button-container">
+      <%= link_to("Learn More", class_path, class: 'btn btn-carousel mobile-hide') %>
+    </div>
+  </div>
+  <div class="carousel">
+    <div class="carousel-img">
+      <%= image_tag("n131ups3hog-amanda-jordan-crop.jpg", class: 'mobile-hide') %>
+      <%= image_tag("n131ups3hog-amanda-jordan-mobile.jpg", class: 'mobile-show') %>
+    </div>
+    <div class="text-overlay">
+      <h2>Breastfeeding Friendly</h2>
+    </div>
+    <div class="button-container">
+      <%= link_to("Learn More", class_path, class: 'btn btn-carousel mobile-hide') %>
+    </div>
+  </div>
+  <div class="carousel">
+    <div class="carousel-img">
+      <%= image_tag("g6neij8rqmg-amanda-jordan-crop.jpg", class: 'mobile-hide') %>
+      <%= image_tag("g6neij8rqmg-amanda-jordan-mobile.jpg", class: 'mobile-show') %>
+    </div>
+    <div class="text-overlay">
+      <h2>When Your Baby Is Ready</h2>
+    </div>
+    <div class="button-container">
+      <%= link_to("Learn More", class_path, class: 'btn btn-carousel mobile-hide') %>
     </div>
   </div>
 </div>
@@ -43,8 +50,9 @@
     $('.carousel-row').slick({
       infinite: true,
       dots: true,
+      arrows: false,
       autoplay: true,
-      autoplaySpeed: 2000
+      autoplaySpeed: 5000
     });
   });
 <% end %>

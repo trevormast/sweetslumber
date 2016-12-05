@@ -293,6 +293,15 @@ header.brand, header.section-header {
   width: 100%;
 }
 
+.carousel .carousel-img {
+  height: 100%;
+  width: 100%;
+}
+
+.slick-slide img.mobile-show {
+  display: none;
+}
+
 .carousel .carousel-img:after {
   content: "";
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
@@ -304,14 +313,18 @@ header.brand, header.section-header {
   z-index: 2;
 }
 
-.carousel > .btn.btn-carousel {
+.carousel > .button-container {
   position: absolute;
   bottom: 0px;
-  right: 8px;
+  right: 7px;
+  left: 0px;
+  text-align: right;
   z-index: 3;
+}
+
+.carousel > .button-container > .btn.btn-carousel {
   font-size: 18px;
   padding: 18px 30px 18px 30px;
-
 }
 
 .carousel .text-overlay {
@@ -319,7 +332,7 @@ header.brand, header.section-header {
   bottom: 0;
   right: 175px;
   // height: 75px;
-  width: 965px;
+  width: 84%;
   color: lighten(black, 10%);
   background: $carousel-overlay;
   z-index: 3;
@@ -486,6 +499,10 @@ select {
 
 @media screen and (max-width: 736px) {
 
+  .section-header > h1 {
+    font-size: 28px;
+  }
+
   /* NAV */
   .navbar-header > h2 {
     margin: 0 0 0 10px;
@@ -525,6 +542,48 @@ select {
 
   header.brand {
     display: none;
+  }
+  .carousel > .text-overlay {
+    right: 0;
+    bottom: 0;
+    top: 75%;
+    width: 100%;
+    background: rgba($green, 0.75);
+    text-align: center;
+    color: black;
+  }
+
+  .carousel > .text-overlay > h2 {
+    font-size: 18px;
+  }
+
+  .carousel > .button-container {
+    text-align: center;
+  }
+
+  .carousel > .button-container > .btn.btn-carousel {
+    border: none;
+    padding: 10px 15px 10px 15px;
+  }
+
+  .carousel#baby-hand {
+    background-image: asset_url('baby-hand-mobile.jpeg');
+  }
+
+  .carousel#baby-feet {
+    background-image: asset_url('n131ups3hog-amanda-jordan-mobile.jpg');
+  }
+
+  .carousel#mommy-baby {
+    background-image: asset_url('g6neij8rqmg-amanda-jordan-mobile.jpg');
+  }
+
+  .slick-slide img.mobile-hide {
+    display: none;
+  }
+
+  .slick-slide img.mobile-show {
+    display: block;
   }
 
 }
