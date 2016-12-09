@@ -510,6 +510,58 @@ select {
 .image-text-overlay > h1 {
 }
 
+/* About Teacher */
+.about-teacher .teacher-row {
+  margin-top: 30px;
+  height: 356px;
+}
+
+.teacher-row [class*='col-'] {
+  height: 100%;
+}
+
+.teacher-row figure {
+  max-height: 300px;
+}
+
+.teacher-row figure img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.teacher-row figcaption {
+  margin-top: 10px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: rgba($purple-lighter, 0.65);
+  text-align: center;
+}
+
+.teacher-row figcaption > p {
+  margin-bottom: 0;
+}
+
+.teacher-row > #teacher-desc {
+  // border: 2px solid $purple-lighter;
+  background-color: rgba(white, 0.75);
+  border-radius: 10px;
+  color: black;
+  padding-bottom: 15px;
+}
+
+#teacher-desc h3 {
+  color: darken($purple, 15%);
+}
+
+#teacher-desc .desc-text {
+  margin-bottom: 15px;
+}
+
+#teacher-desc .btn.btn-default {
+  color: black;
+  font-size: 18px;
+}
+
 /* DESKTOP */
 @media (min-width: 768px) {
   .navbar-right > li {

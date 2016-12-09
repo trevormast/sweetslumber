@@ -1,6 +1,35 @@
-<header class="section-header">
-  <h1>Your Teacher</h1>
-</header>
-<div class="row">
+<div class="container about-teacher">
+<!--   <header class="section-header">
+    <h1>Your Teacher</h1>
+  </header>
+ -->
+  <div class="row teacher-row">
+    <div class="col-lg-3" id="teacher-pic">
+      <figure>
+        <%= image_tag("ashley.png") %>
+        <figcaption>
+          <p>Ashley Mast, CNM RN</p>
+          <p>Nurse Midwife</p>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="col-lg-9" id="teacher-desc">
+      <header>
+        <h3>Who is Ashley Mast?</h3>
+      </header>
+      <div class="desc-text">
+        <p>
+          Ashley Guntkowski Mast has been a Registered Nurse since 2006 and a Certified Nurse Midwife since 2007. She has attended births at home, birth center, and hospital setting. She currently catches babies at Tree of Life Healthy Birthing and Parenting. Ashley is a wife and a mother to two well-rested girls.
+        </p>
+        <p>
+          When Ashley’s first daughter was 5 months old and still waking up four times per night, Ashley began a desperate search for answers. She read every book, every blog, and every comment posted. At 6 mo, she nursed twice overnight. By 9mo, she could sleep 7pm-7am waking once at 5am to breastfeed. Sleeping through the night (STTN) happened at long last one year and one month after the birth! Her second baby was STTN by 9mo.
+        </p>
+        <p>
+         She understands the impact of a good night's sleep on your family's well-being, and also appreciates how important it is to find gentle approaches to get there. Ashley is honored to be part of your journey into parenthood.
+        </p>
+      </div>
+      <%= link_to("View Class Schedule", workshops_path, class: 'btn btn-default') %>
+    </div>
+  </div>
 
 </div>
