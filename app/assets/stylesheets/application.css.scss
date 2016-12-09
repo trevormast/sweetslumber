@@ -63,7 +63,7 @@ $green: #81B077;
 $overlay: linear-gradient(45deg, rgba(255,196,154, 0.95), rgba(189,162,209, 0.95));
 $purple-overlay: linear-gradient(45deg, rgba(189,162,209, 0.75), rgba(189,162,209, 0.75));
 $image-overlay: linear-gradient(180deg, rgba(33, 3, 53, 0.25), rgba(33, 3, 53, 0.25));
-$dark-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+$dark-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
 $carousel-overlay: linear-gradient(90deg, rgba($green, 0), $green 40%);
 
 html {
@@ -344,7 +344,9 @@ header.brand, header.section-header {
 }
 
 .test {
-  border: 2px solid $purple-lightest;
+  // border: 2px solid $purple-lightest;
+  background-color: rgba($purple-lightest, 0.75);
+  border-radius: 10px;
   height: 363px;
 }
 
@@ -510,51 +512,112 @@ select {
 .image-text-overlay > h1 {
 }
 
-/* About Teacher */
-.about-teacher .teacher-row {
+/*ABOUT CLASS*/
+
+.about-class .row {
   margin-top: 30px;
 }
 
-.teacher-row figure {
-  max-height: 100%;
+.about-class .col-inner#about-teacher {
+  border: 2px solid $purple-lightest;
+  border-radius: 10px;
 }
 
-.teacher-row figure img {
+.image-row .class-pic {
+  overflow-y: hidden;
+}
+
+.class-pic img {
+  border-radius: 10px;
+  max-width: 100%
+}
+
+.class-row .col-inner {
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.class-row .col-inner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.class-row .col-inner > figure {
+  padding: 10px 10px;
+  float: left;
+  max-width: 40%;
+}
+
+.class-row .col-inner > figure > img {
+  margin-bottom: 5px;
+}
+
+.class-row .col-inner > figure > figcaption {
+  border-radius: 10px;
+  padding: 10px 10px;
+  background-color: rgba($green, 0.75);
+  text-align: center;
+}
+
+.class-row .col-inner > figure > figcaption > p {
+  font-size: 12px;
+  margin-bottom: 1px;
+}
+
+.class-row .col-inner > figure > img {
   max-width: 100%;
   border-radius: 10px;
 }
 
-.teacher-row figcaption {
-  margin-top: 10px;
-  padding: 10px 10px;
-  border-radius: 10px;
-  background-color: rgba($purple-lighter, 0.65);
+.class-row .col-inner > header > h3 {
+  margin-top: 0;
+}
+
+#journey > header > h3 {
+  margin-top: -10px;
+}
+
+#journey .btn-wrapper {
   text-align: center;
 }
 
-.teacher-row figcaption > p {
-  margin-bottom: 0;
+#journey .btn-wrapper > a {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-.teacher-row > #teacher-desc {
-  // border: 2px solid $purple-lighter;
-  background-color: rgba(white, 0.75);
-  border-radius: 10px;
-  color: black;
-  padding-bottom: 15px;
+.class-row#class-desc .col-inner {
+  background-color: rgba($purple-lightest, 0.75);
+  min-height: 308px;
 }
 
-#teacher-desc h3 {
-  color: darken($purple, 15%);
+.class-row#class-desc .col-inner > header {
+  border-bottom: 2px solid $purple;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-#teacher-desc .desc-text {
-  margin-bottom: 15px;
+.class-row#class-desc .col-inner > header > h3 {
+  color: $purple-darker;
 }
 
-#teacher-desc .btn.btn-default {
-  color: black;
-  font-size: 18px;
+.class-row#class-desc .col-inner > p {
+  color: $purple-darkest;
+}
+
+// #call-to-action .col-inner {
+//   background-color: $green;
+//   border-radius: 10px;
+//   min-height: 100px;
+// }
+
+#quote {
+  text-align: center;
+}
+
+#quote h2 {
+  font-family: $princess;
 }
 
 /* DESKTOP */
