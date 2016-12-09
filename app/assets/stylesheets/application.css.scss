@@ -513,15 +513,10 @@ select {
 /* About Teacher */
 .about-teacher .teacher-row {
   margin-top: 30px;
-  height: 356px;
-}
-
-.teacher-row [class*='col-'] {
-  height: 100%;
 }
 
 .teacher-row figure {
-  max-height: 300px;
+  max-height: 100%;
 }
 
 .teacher-row figure img {
@@ -571,6 +566,15 @@ select {
 
   .navbar-header > h2 {
     display: none;
+  }
+
+  /* about teacher*/
+  .about-teacher .teacher-row {
+    height: 356px;
+  }
+
+  .teacher-row [class*='col-'] {
+    height: 100%;
   }
 }
 
@@ -668,6 +672,18 @@ select {
 
   .row#testimonials .col-inner {
     margin-bottom: 20px;
+  }
+
+  /* About Teacher*/
+
+  .teacher-row > #teacher-pic > figure {
+    margin: auto;
+  }
+
+  .teacher-row #teacher-desc {
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
   }
 
 }
