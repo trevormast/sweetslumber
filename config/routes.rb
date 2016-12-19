@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get '/class', :to => 'static_pages#about_class'
-  get '/teacher', :to => 'static_pages#about_teacher'
+  # get '/teacher', :to => 'static_pages#about_teacher' #favor /about_class
   get '/resources', :to => 'static_pages#resources'
 
   # Example of regular route:
