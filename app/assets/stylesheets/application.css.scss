@@ -624,12 +624,6 @@ select {
   color: $purple-darkest;
 }
 
-// #call-to-action .col-inner {
-//   background-color: $green;
-//   border-radius: 10px;
-//   min-height: 100px;
-// }
-
 #quote {
   margin-top: 45px;
   text-align: center;
@@ -644,6 +638,19 @@ select {
 #quote h2 {
   margin-top: 0;
   font-family: $princess;
+}
+
+/* CONTACT */
+.row.contact-row {
+  margin-top: 30px;
+
+}
+
+.contact-row .col-inner {
+  text-align: center;
+  border: 2px solid $purple-lighter;
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
 }
 
 /* DESKTOP */

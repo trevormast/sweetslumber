@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   get '/class', :to => 'static_pages#about_class'
   # get '/teacher', :to => 'static_pages#about_teacher' #favor /about_class
+  get '/contact', :to => 'static_pages#contact'
   get '/resources', :to => 'static_pages#resources'
+  post '/email_message', :to => 'static_pages#email_message'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
