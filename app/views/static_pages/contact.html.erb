@@ -1,13 +1,28 @@
 <div class="container contact">
   <div class="row contact-row">
-    <div class="col-lg-8 col-lg-offset-2">
-      <header class="section-header">
-        <h1>Contact Sweet Slumber</h1>
-      </header>
-      <div class="col-inner">
+    <div class="col-lg-6 col-lg-offset-3">
+      <!-- <div class="col-inner">
         <p>Are you wondering if Sweet Slumber is a good choice for you and your family?</p>
         <p>Please contact us at sweetslumberworkshops@gmail.com with questions.</p>
-      </div>
+      </div> -->
+      <div class="col-inner">
+        <header class="section-header">
+          <h1>Contact Sweet Slumber</h1>
+        </header>
+        <%= form_for :contact_message, url: "email_message" do |form| %>
+          <div class="form-group">
+            <%= form.label "Email" %>
+            <%= form.email_field :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= form.label 'Message' %>
+            <%= form.text_area :message, class: 'form-control' %>
+          </div>
+
+          <%= form.submit 'Submit', class: 'btn btn-default' %>
+
+        <% end  %>
+       </div>
     </div>
   </div>
 </div>
