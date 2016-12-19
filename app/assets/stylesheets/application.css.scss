@@ -63,7 +63,7 @@ $green: #81B077;
 $overlay: linear-gradient(45deg, rgba(255,196,154, 0.95), rgba(189,162,209, 0.95));
 $purple-overlay: linear-gradient(45deg, rgba(189,162,209, 0.75), rgba(189,162,209, 0.75));
 $image-overlay: linear-gradient(180deg, rgba(33, 3, 53, 0.25), rgba(33, 3, 53, 0.25));
-$dark-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+$dark-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
 $carousel-overlay: linear-gradient(90deg, rgba($green, 0), $green 40%);
 
 html {
@@ -344,7 +344,9 @@ header.brand, header.section-header {
 }
 
 .test {
-  border: 2px solid $purple-lightest;
+  // border: 2px solid $purple-lightest;
+  background-color: rgba($purple-lightest, 0.75);
+  border-radius: 10px;
   height: 363px;
 }
 
@@ -436,12 +438,28 @@ table.dataTable.no-footer {
   border-top: 1px solid black;
 }
 
+.row#call-to-action > header > a {
+  padding: 15px 35px 15px 35px;
+}
+
+.row#call-to-action > header > a > h2 {
+  margin: 0 0 0 0;
+}
+
+.row#testimonials {
+  margin-top: 30px;
+}
+
 .row#testimonials .col-inner {
-  height: 225px;
+  // height: 225px;
   background: rgba($purple-lighter, 0.65);
   border-radius: 10px;
-  padding: 30px 10px;
+  padding: 10px 10px;
   text-align: center;
+}
+
+.row#testimonials .col-inner > h4 {
+  line-height: 25px;
 }
 
 .row#testimonials span.heavy-quote {
@@ -510,6 +528,124 @@ select {
 .image-text-overlay > h1 {
 }
 
+/*ABOUT CLASS*/
+
+.about-class .row {
+  margin-top: 30px;
+}
+
+.about-class .col-inner#about-teacher {
+  border: 2px solid $purple-lightest;
+  border-radius: 10px;
+}
+
+.image-row .class-pic {
+  overflow-y: hidden;
+}
+
+.class-pic img {
+  border-radius: 10px;
+  max-width: 100%
+}
+
+.class-row .col-inner {
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.class-row .col-inner:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.class-row .col-inner > figure {
+  padding: 10px 10px;
+  float: left;
+  max-width: 40%;
+}
+
+.class-row .col-inner > figure > img {
+  margin-bottom: 5px;
+}
+
+.class-row .col-inner > figure > figcaption {
+  border-radius: 10px;
+  padding: 10px 10px;
+  background-color: rgba($green, 0.75);
+  text-align: center;
+}
+
+.class-row .col-inner > figure > figcaption > p {
+  font-size: 12px;
+  margin-bottom: 1px;
+}
+
+.class-row .col-inner > figure > img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.class-row .col-inner > header > h3 {
+  margin-top: 0;
+}
+
+#journey > header > h3 {
+  margin-top: -10px;
+  color: $purple-lighter;
+  border-bottom: 1px solid $purple;
+}
+
+#journey .btn-wrapper {
+  text-align: center;
+}
+
+#journey .btn-wrapper > a {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.class-row#class-desc .col-inner {
+  background-color: rgba($purple-lightest, 0.75);
+  min-height: 308px;
+}
+
+.class-row#class-desc .col-inner > header {
+  border-bottom: 2px solid $purple;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.class-row#class-desc .col-inner > header > h3 {
+  color: $purple-darker;
+}
+
+.class-row#class-desc .col-inner > p {
+  color: $purple-darkest;
+}
+
+// #call-to-action .col-inner {
+//   background-color: $green;
+//   border-radius: 10px;
+//   min-height: 100px;
+// }
+
+#quote {
+  margin-top: 45px;
+  text-align: center;
+}
+
+#quote i {
+  font-family: $princess;
+  color: $purple-lighter;
+  font-size: 45px;
+}
+
+#quote h2 {
+  margin-top: 0;
+  font-family: $princess;
+}
+
 /* DESKTOP */
 @media (min-width: 768px) {
   .navbar-right > li {
@@ -519,6 +655,15 @@ select {
 
   .navbar-header > h2 {
     display: none;
+  }
+
+  /* about teacher*/
+  .about-teacher .teacher-row {
+    height: 356px;
+  }
+
+  .teacher-row [class*='col-'] {
+    height: 100%;
   }
 }
 
@@ -616,6 +761,18 @@ select {
 
   .row#testimonials .col-inner {
     margin-bottom: 20px;
+  }
+
+  /* About Teacher*/
+
+  .teacher-row > #teacher-pic > figure {
+    margin: auto;
+  }
+
+  .teacher-row #teacher-desc {
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
   }
 
 }

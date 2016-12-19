@@ -34,29 +34,13 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav centered">
             <li><%= link_to("Home", root_url) %></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-              <ul class="dropdown-menu">
-                <li><%= link_to("Your Teacher", teacher_path) %></li>
-                <li><%= link_to("Your Class", class_path) %></li>
-              </ul>
-            </li>
+            <li><%= link_to("About", class_path) %></li>
             <li><%= link_to("Schedule", workshops_url) %></li>
+
             <% if registered_user? %>
               <li><%= link_to("Resources", resources_path) %></li>
             <% end %>
-            <!-- <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li> -->
+
             <li><%= link_to("Contact", "#") %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -100,6 +84,19 @@
   <div class="container-fluid" id="main-content">
     <div class="container" id="content">
       <%= yield %>
+    </div>
+
+    <div class="row footer">
+      <div class="col-lg-6 col-lg-offset-3">
+        <div class="col-inner" id="quote">
+          <i>. . .</i>
+          <header>
+            <h2>
+              Teaching your baby how to sleep gives them a foundation for self-care.
+            </h2>
+          </header>
+        </div>
+      </div>
     </div>
   </div>
 

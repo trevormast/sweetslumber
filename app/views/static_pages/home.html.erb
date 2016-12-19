@@ -37,39 +37,42 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" id="call-to-action">
   <header class="section-header">
     <h1>Get the rest you need to take the best care of your baby.</h1>
+    <%= link_to(workshops_path, class: 'btn btn-default') do%>
+      <h2>Find a Class</h2>
+    <% end %>
   </header>
+
 </div>
 
 <div class="row" id="testimonials">
   <div class="col-lg-4">
     <div class="col-inner">
-      <h3>
+      <h4>
         "When I left I really felt like I had the tools to make my deepest wish come true... A consistently good night of sleep."
-      </h3>
+      </h4>
       <p>-Lexia</p>
     </div>
   </div>
   <div class="col-lg-4">
     <div class="col-inner">
-      <h3>
+      <h4>
         "This class was my life line! I would still be waking every hour with him without Ashley's help."
-      </h3>
+      </h4>
       <p>-Allison</p>
     </div>
   </div>
   <div class="col-lg-4">
     <div class="col-inner">
-      <h3>
-        "Using the techniques I learned in this class, I helped my son learn to fall asleep without being attached to nursing."
-      </h3>
-      <p>-Sasha</p>
+      <h4>
+        "We learned how to continue nursing but not use it as a crutch so he could fall and stay asleep on his own."
+      </h4>
+      <p>-Clarissa</p>
     </div>
   </div>
 </div>
-
 
 <!-- CAROUSEL -->
 <%= javascript_tag do %>
