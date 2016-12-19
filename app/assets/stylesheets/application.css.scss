@@ -631,10 +631,18 @@ select {
 // }
 
 #quote {
+  margin-top: 45px;
   text-align: center;
 }
 
+#quote i {
+  font-family: $princess;
+  color: $purple-lighter;
+  font-size: 45px;
+}
+
 #quote h2 {
+  margin-top: 0;
   font-family: $princess;
 }
 
