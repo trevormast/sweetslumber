@@ -438,6 +438,18 @@ table.dataTable.no-footer {
   border-top: 1px solid black;
 }
 
+.row#call-to-action > header > a {
+  padding: 15px 35px 15px 35px;
+}
+
+.row#call-to-action > header > a > h2 {
+  margin: 0 0 0 0;
+}
+
+.row#testimonials {
+  margin-top: 30px;
+}
+
 .row#testimonials .col-inner {
   // height: 225px;
   background: rgba($purple-lighter, 0.65);
