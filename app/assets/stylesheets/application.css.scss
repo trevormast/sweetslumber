@@ -592,6 +592,8 @@ select {
 
 #journey > header > h3 {
   margin-top: -10px;
+  color: $purple-lighter;
+  border-bottom: 1px solid $purple;
 }
 
 #journey .btn-wrapper {
