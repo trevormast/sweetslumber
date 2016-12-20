@@ -672,14 +672,32 @@ select {
   .teacher-row [class*='col-'] {
     height: 100%;
   }
+
+  .mobile-show {
+    display: none;
+  }
 }
 
 /* MOBILE */
 
 @media screen and (max-width: 736px) {
 
+  .class-row .mobile-hide {
+    display: none;
+  }
+
   .section-header > h1 {
     font-size: 28px;
+  }
+
+  .mobile-show#mobile-cta {
+    display: block;
+    text-align: center;
+  }
+
+  .mobile-show#mobile-cta > a {
+    width: 100%;
+    font-size: 25px;
   }
 
   /* NAV */
@@ -770,16 +788,16 @@ select {
     margin-bottom: 20px;
   }
 
-  /* About Teacher*/
-
-  .teacher-row > #teacher-pic > figure {
-    margin: auto;
+  .row#call-to-action > header > a {
+    width: 100%;
   }
 
-  .teacher-row #teacher-desc {
-    text-align: center;
-    margin-top: 10px;
-    padding-top: 10px;
+  /* ABOUT CLASS*/
+  #class-desc [class*='col-'] {
+    margin-bottom: 30px;
   }
 
+  .class-row#class-desc .col-inner {
+    min-height: 0;
+  }
 }
