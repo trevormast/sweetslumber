@@ -3,27 +3,13 @@
 <br>
 <p>
   <strong>Location:</strong>
-  <%= @workshop.location.name %>
+  <%= @workshop.location.name %> |
   <%= @workshop.location.address %>
-</p>
-
-
-<p>
-  <strong>Subject:</strong>
-  <%= @workshop.subject %>
 </p>
 
 <p>
   <strong>Time:</strong>
-  <%= @workshop.time %>
+  <%= date_format(@workshop.time) %>
+  <%= time_format(@workshop.time) %>
 </p>
 
-<p>
-  <strong>Limit:</strong>
-  <%= @workshop.limit %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= price_in_dollars(@workshop.price)  %>
-</p>
