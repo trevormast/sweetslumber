@@ -1,1 +1,29 @@
 <h1>Welcome To Sweet Slumber Workshops!</h1>
+<h2>You have successfully registered for the following workshop:</h3>
+<br>
+<p>
+  <strong>Location:</strong>
+  <%= @workshop.location.name %>
+  <%= @workshop.location.address %>
+</p>
+
+
+<p>
+  <strong>Subject:</strong>
+  <%= @workshop.subject %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @workshop.time %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @workshop.limit %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= price_in_dollars(@workshop.price)  %>
+</p>
