@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.3'
 
 
 gem 'rails', '4.2.7.1'
@@ -31,6 +31,8 @@ gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 gem 'devise'
 
 gem 'stripe'
+
+gem 'puma'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
