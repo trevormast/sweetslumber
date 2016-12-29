@@ -33,7 +33,11 @@
                   data: { toggle: "modal", target: "#locationModal", name: workshop.location.name, address: workshop.location.address}) %>
                 </td>
                 <td><%= price_in_dollars(workshop.price) %></td>
-                <td><%= link_to("Register", new_workshop_registration_path(workshop), class: 'btn btn-default', data: { turbolinks: false }) unless admin_present? %></td>
+                <% if workshop.users.include?(current_user) %>
+                  <td>Already Registered</td>
+                <% else %>
+                  <td><%= link_to("Register", new_workshop_registration_path(workshop), class: 'btn btn-default', data: { turbolinks: false }) unless admin_present? %></td>
+                <% end %>
                 <%if admin_present?  %>
                   <td><%= link_to 'Show', workshop, class: 'btn btn-default' %></td>
                   <td><%= link_to 'Edit', edit_workshop_path(workshop), class: 'btn btn-default' %></td>
