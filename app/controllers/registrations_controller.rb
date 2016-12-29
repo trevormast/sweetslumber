@@ -19,7 +19,7 @@ class RegistrationsController < ApplicationController
 
           RegistrationMailer.send_homework(@registration).deliver_later
 
-          format.html { redirect_to workshop_path(params[:workshop_id]), notice: 'Registration was successful.' }
+          format.html { redirect_to root_path, notice: 'Registration was successful.' }
           format.json { render :show, status: :created, location: @registration }
         else
           format.html { redirect_to new_workshop_registration_path(params[:workshop_id]), alert: @registration.errors.full_messages.to_sentence }

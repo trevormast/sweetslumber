@@ -83,7 +83,7 @@ RSpec.describe RegistrationsController, type: :controller do
       end
 
       it 'redirects to workshop path' do
-        expect(response).to redirect_to(workshop_path(@workshop.id))
+        expect(response).to redirect_to(root_path)
       end
     end
 
