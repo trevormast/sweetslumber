@@ -1,5 +1,5 @@
 <h1>Welcome To Sweet Slumber Workshops!</h1>
-<h2>You have successfully registered for the following workshop:</h3>
+<h2>You have successfully registered for the following workshop:</h2>
 <br>
 <p>
   <strong>Location:</strong>
@@ -11,5 +11,10 @@
   <strong>Time:</strong>
   <%= date_format(@workshop.time) %>
   <%= time_format(@workshop.time) %>
+</p>
+
+
+<p> 
+  Please review this <%= link_to("Sleep Guide", sleep_guide_link(@registration)) %> before your workshop date. 
 </p>
 

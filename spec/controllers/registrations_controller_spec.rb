@@ -38,7 +38,7 @@ RSpec.describe RegistrationsController, type: :controller do
     context 'with valid params' do
       let(:valid_params)  {
         { baby_name: 'baby',
-          baby_dob: 'October 16 2015'.to_datetime,
+          baby_dob: @workshop.time.months_ago(6),
           nap_location: 'crib',
           night_location: 'crib',
           desired_sleep_location: 'crib',
