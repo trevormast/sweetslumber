@@ -653,6 +653,11 @@ select {
   padding: 10px 10px 10px 10px;
 }
 
+/* RESOURCES */
+.row#resources-row {
+  text-align: center;
+}
+
 /* DESKTOP */
 @media (min-width: 768px) {
   .navbar-right > li {
