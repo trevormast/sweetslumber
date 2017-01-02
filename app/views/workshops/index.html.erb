@@ -34,7 +34,7 @@
                 </td>
                 <td><%= price_in_dollars(workshop.price) %></td>
                 <% if workshop.users.include?(current_user) %>
-                  <td>Already Registered</td>
+                  <td>Registered</td>
                 <% else %>
                   <td><%= link_to("Register", new_workshop_registration_path(workshop), class: 'btn btn-default', data: { turbolinks: false }) unless admin_present? %></td>
                 <% end %>
