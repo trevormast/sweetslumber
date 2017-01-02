@@ -1,6 +1,5 @@
 <h1>Welcome To Sweet Slumber Workshops!</h1>
-<h2>You have successfully registered for the following workshop:</h3>
-<br>
+<h2>You have successfully registered for the following workshop:</h2>
 <p>
   <strong>Location:</strong>
   <%= @workshop.location.name %> |
@@ -12,4 +11,81 @@
   <%= date_format(@workshop.time) %>
   <%= time_format(@workshop.time) %>
 </p>
+<br>
+<h2>Homework</h3>
+
+<h4>Required Reading:</h4>
+<p>
+  Here is the heart of the No Cry Sleep Solution book:
+  <a href="http://www.drmomma.org/2009/09/no-cry-sleep-solution-gentle-ways-to.html" target="_blank">When Your Baby Wakes Frequently</a>
+</p>
+
+<p>
+  Here is a good summary of sleep goals for your baby's age:
+  <%= link_to("Sleep Guide", sleep_guide_link(@registration), :target => "_blank") %>
+</p>
+
+<p>
+  What you need to know about sleeping through the night:
+  <a href="http://www.troublesometots.com/what-you-need-to-know-about-sleeping-through-the-night-part-i/" target="_blank">part 1</a>
+  <a href="http://www.troublesometots.com/what-you-need-to-know-about-sleeping-through-the-night-part-2/" target="_blank">part 2</a>
+  <a href="http://www.troublesometots.com/what-you-need-to-know-about-sleeping-through-the-night-part-3/" target="_blank">part 3</a>
+
+</p>
+
+<h4>One week of Sleep Logging due 24hr prior to class:</h4>
+<p>
+  Please track your baby's sleep starting immediately and keep these logs short and sweet.
+</p>
+<p>Daytime logging:</p>
+<p>
+  It is your choice to be exact or round to the nearest 5 minutes. Number their naps and subtotal their daysleep at the end of the day.
+</p>
+<p>
+  Abbreviation key:
+  "wu" = wakeup time.
+  "wt" = wake time.
+  "st" = sleep time. 
+</p>
+<p>Daytime Sleep Log Example:</p>
+<ul>
+  <li>7:00 wu </li>
+  <li>8:45 nap #1 (wt 1h45m)</li>
+  <li>10:15 wu (st 1h30m)</li>
+  <li>12:30 nap #2 (wt 2h15m)</li>
+  <li>2:00 wu (st 1h30m)</li>
+  <li>4:15 nap #3 (wt 2h15m)</li>
+  <li>4:45 wu (st 30m)</li>
+  <li>7:00 asleep for the night</li>
+  <li>~~~Total Naps: 3</li>
+  <li>~~~Day sleep total: 3h30m</li>
+</ul>
+
+<p>Nighttime logging:</p>
+<p>
+  Please total the number of night-wakings and calculate their total sleep duration.
+</p>
+<p>
+  Abbreviation key:
+  "bf" = breastfeed. 
+  "nw" = night-waking. 
+ 
+</p>
+<p>Nighttime Sleep Log Example:</p>
+<ul>
+  <li>6:45 last bf</li>
+  <li>7:00 asleep</li>
+  <li>11:00 nw #1</li>
+  <li>2:00 nw #2</li>
+  <li>4:00 nw #3</li>
+  <li>5:00 nw #4</li>
+  <li>6:00 wu</li>
+  <li>~~~Total Nws: 4 (~30min each) = 2h</li>
+  <li>~~~Night sleep total: around 9h</li>
+  <li>~~~Combined sleep total (day + night) = 12h30m</li>
+</ul>
+
+<h3>
+  For additional readings and materials, please visit our <%= link_to("Resources", resources_url, :target => "_blank") %> page.
+</h3>
 
