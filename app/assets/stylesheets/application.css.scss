@@ -658,6 +658,46 @@ select {
   text-align: center;
 }
 
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: transparent;
+  color: $yellow;
+  border: 2px solid $purple-lighter;
+}
+
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: transparent;
+  color: $yellow;
+  border: 2px solid $purple-lighter;
+}
+
+#resources-row .tab-content {
+  border: 2px solid $purple-lighter;
+  border-radius: 0 0 10px 10px;
+}
+
+.tab-content .tab-pane > h3 {
+  border-bottom: 2px solid $purple-lighter;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+#nap-schedules ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#nap-schedules h4 {
+  border-bottom: 1px solid white;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+
 /* DESKTOP */
 @media (min-width: 768px) {
   .navbar-right > li {
