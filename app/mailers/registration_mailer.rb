@@ -1,4 +1,7 @@
 class RegistrationMailer < ApplicationMailer
+  include Rails.application.routes.url_helpers
+  include ActionView::Helpers::UrlHelper
+  
   add_template_helper(WorkshopsHelper)
   add_template_helper(MailerHelper)
 
