@@ -34,7 +34,7 @@
                 </td>
                 <td><%= price_in_dollars(workshop.price) %></td>
                 <% if workshop.users.include?(current_user) %>
-                  <td>Already Registered</td>
+                  <td>Registered</td>
                 <% else %>
                   <td><%= link_to("Register", new_workshop_registration_path(workshop), class: 'btn btn-default', data: { turbolinks: false }) unless admin_present? %></td>
                 <% end %>
@@ -54,6 +54,13 @@
       <% if admin_present? %>
         <%= link_to 'New Workshop', new_workshop_path %>
       <% end %>
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+          <div class="col-inner" id="disclaimer">
+            <p>*Babies-in-arms are welcome, but do require registration of an additional care provider to minimize distractions.</p>                      
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
