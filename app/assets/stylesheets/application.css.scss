@@ -672,7 +672,7 @@ select {
 .nav > li > a:hover, .nav > li > a:focus {
   background-color: transparent;
   color: $yellow;
-  border: 2px solid $purple-lighter;
+  // border: 2px solid $purple-lighter;
 }
 
 #resources-row .tab-content {
