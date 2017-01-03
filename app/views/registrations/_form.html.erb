@@ -15,6 +15,7 @@
 
     <%= f.fields_for :questionaire do |ff| %>
       <%= f.hidden_field :stripe_card_token %>
+      <%= f.hidden_field :plus_one, :id => 'plusOneField', :value => 'false' %>
       <div class="form-head margin-bottom">
         <h4>Please fill out this quick questionnaire.</h4>
       </div>
@@ -114,11 +115,17 @@
                     <td>Workshop on <%=date_format(@workshop.time)%></td>
                     <td><%= price_in_dollars(@workshop.price) %></td>
                   </tr>
+                  <tr>
+                    <td>
+                      <button type="button" class="btn btn-primary btn-sm" id="plusOneButton">Add Adult</button>
+                    </td>
+                    <td id="plusOnePrice">$0.00</td>
+                  </tr>
                 </tbody>
                 <tfoot>
                   <tr>
                     <td>Total:</td>
-                    <td><%= price_in_dollars(@workshop.price)  %></td>
+                    <td id="totalPrice"><%= price_in_dollars(@workshop.price)  %></td>
                   </tr>
                 </tfoot>
               </table>
