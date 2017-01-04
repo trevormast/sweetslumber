@@ -113,6 +113,24 @@ label {
   color: white;
 }
 
+.btn-warning {
+  background-color: darken(red, 3%);
+  border: none;
+}
+
+.btn-warning:hover, .btn-warning:active,
+.btn-warning:focus, .btn-warning:active:focus, {
+  color: #fff;
+  background-color: darken(red, 10%);
+  border: none;
+  outline: 0;
+}
+
+.btn-primary:hover, .btn-primary:active,
+.btn-primary:focus, .btn-primary:active:focus {
+  outline: 0;
+}
+
 
 .btn-default:hover, .btn-default:active,
 .btn-default:focus {

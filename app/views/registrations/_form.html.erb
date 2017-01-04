@@ -16,6 +16,9 @@
     <%= f.fields_for :questionaire do |ff| %>
       <%= f.hidden_field :stripe_card_token %>
       <%= f.hidden_field :plus_one, :id => 'plusOneField', :value => 'false' %>
+      <%= tag :meta, :name => "price", :content => @workshop.price %>
+      <%= tag :meta, :name => "plus-one-price", :content=> @workshop.plus_one_price %>
+
       <div class="form-head margin-bottom">
         <h4>Please fill out this quick questionnaire.</h4>
       </div>
