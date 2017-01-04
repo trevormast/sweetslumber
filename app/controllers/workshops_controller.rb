@@ -79,7 +79,7 @@ class WorkshopsController < ApplicationController
     end
 
     def workshop_params
-      validated_params.require(:workshop).permit(:location_id, :subject, :time, :limit, :price)
+      validated_params.require(:workshop).permit(:location_id, :subject, :time, :limit, :price, :plus_one_price)
     end
 
     def validated_params

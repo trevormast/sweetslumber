@@ -14,7 +14,8 @@ RSpec.describe WorkshopsController, type: :controller do
       subject: 'workshop subject',
       time: 1.month.from_now,
       limit: 20,
-      price: 4500
+      price: 4500,
+      plus_one_price: 2000
     }
   }
 

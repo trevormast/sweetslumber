@@ -37,6 +37,10 @@
         <%= f.label :price, 'Price (in cents)' %><br>
         <%= f.number_field :price, step: :any, class: 'form-control' %>
       </div>
+      <div class="field form-group">
+        <%= f.label :plus_one_price, 'Plus One Price (in cents)' %>
+        <%= f.number_field :plus_one_price , step: :any, class: 'form-control' %>
+      </div>
       <div class="actions">
         <%= f.submit(class: 'btn btn-default')%>
       </div>

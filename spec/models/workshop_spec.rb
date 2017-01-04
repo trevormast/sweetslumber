@@ -10,7 +10,8 @@ RSpec.describe Workshop, type: :model do
       subject: 'New Class',
       time: Time.now,
       limit: 30,
-      price: 4500
+      price: 4500,
+      plus_one_price: 2000
     }
   }
 
