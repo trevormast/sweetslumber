@@ -66,10 +66,6 @@ RSpec.describe RegistrationsController, type: :controller do
                                       :questionaire => valid_params }
       end
 
-      it 'assigns a card token' do
-        expect(assigns(:stripe_card_token)).to eq(card_token)
-      end
-
       it 'assigns a registration' do
         expect(assigns(:registration)).to be_a(Registration)
       end
