@@ -69,6 +69,8 @@ class WorkshopsController < ApplicationController
     @subject = params['email_all']['subject']
     @body = params['email_all']['body']
 
+    BulkMailer.send_bulk(@recipients, @subject, @body).deliver
+
     respond_to do |format|
       format.js
     end
