@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123234910) do
+ActiveRecord::Schema.define(version: 20170105035806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,9 +65,11 @@ ActiveRecord::Schema.define(version: 20161123234910) do
   create_table "registrations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "workshop_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "charge_token"
+    t.boolean  "plus_one"
+    t.integer  "charge_amount"
   end
 
   add_index "registrations", ["user_id"], name: "index_registrations_on_user_id", using: :btree
@@ -99,10 +101,11 @@ ActiveRecord::Schema.define(version: 20161123234910) do
     t.string   "subject"
     t.datetime "time"
     t.integer  "limit"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "location_id"
     t.integer  "price"
+    t.integer  "plus_one_price"
   end
 
   add_index "workshops", ["location_id"], name: "index_workshops_on_location_id", using: :btree

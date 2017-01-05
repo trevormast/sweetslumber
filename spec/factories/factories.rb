@@ -23,6 +23,7 @@ FactoryGirl.define do
     time 1.month.from_now
     limit 20
     price 4500
+    plus_one_price 2000
   end
 
   factory :registration do
