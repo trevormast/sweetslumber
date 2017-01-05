@@ -21,6 +21,7 @@ class Registration < ActiveRecord::Base
               )
 
       self.charge_token = charge.id
+      self.charge_amount = charge.amount
       save!
     end
   rescue Stripe::InvalidRequestError => e

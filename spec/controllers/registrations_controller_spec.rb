@@ -4,6 +4,29 @@ require 'stripe_mock'
 RSpec.describe RegistrationsController, type: :controller do
   let(:stripe_helper) { StripeMock.create_test_helper }
 
+  let(:valid_params)  {
+    { baby_name: 'baby',
+      baby_dob: @workshop.time.months_ago(6),
+      nap_location: 'crib',
+      night_location: 'crib',
+      desired_sleep_location: 'crib',
+      nap_routine: 'none',
+      night_routine: 'none',
+      naps_per_day: 2,
+      bedtime: '12:00 PM'.to_time,
+      sleep_obstacle: 'none',
+      nightwakings: 2,
+      sleep_goal: 'none',
+      referred_by: 'no one'
+    }
+  }
+
+  let(:comparable_params) {
+    valid_params.except(:baby_dob, :bedtime)
+  }
+
+  let(:card_token) { stripe_helper.generate_card_token }
+
   before do
     @user = FactoryGirl.create(:user)
     @location = FactoryGirl.create(:location)
@@ -36,33 +59,11 @@ RSpec.describe RegistrationsController, type: :controller do
     end
 
     context 'with valid params' do
-      let(:valid_params)  {
-        { baby_name: 'baby',
-          baby_dob: @workshop.time.months_ago(6),
-          nap_location: 'crib',
-          night_location: 'crib',
-          desired_sleep_location: 'crib',
-          nap_routine: 'none',
-          night_routine: 'none',
-          naps_per_day: 2,
-          bedtime: '12:00 PM'.to_time,
-          sleep_obstacle: 'none',
-          nightwakings: 2,
-          sleep_goal: 'none',
-          referred_by: 'no one'
-        }
-      }
-
-      let(:comparable_params) {
-        valid_params.except(:baby_dob, :bedtime)
-      }
-
-      let(:card_token) { stripe_helper.generate_card_token }
-
       before do
         ActionMailer::Base.deliveries = []
         post :create, workshop_id: @workshop.id,
                       registration: { 'stripe_card_token' => card_token,
+                                      'plus_one' => 'false',
                                       :questionaire => valid_params }
       end
 
@@ -70,8 +71,12 @@ RSpec.describe RegistrationsController, type: :controller do
         expect(assigns(:registration)).to be_a(Registration)
       end
 
-      it 'associates registration and questionaire' do
+      it 'associates registration with questionaire' do
         expect(assigns(:registration).questionaire).to have_attributes(comparable_params)
+      end
+
+      it 'adds plus-one value' do
+        expect(assigns(:registration).plus_one).to be_falsy
       end
 
       it 'sends homework' do
@@ -80,6 +85,16 @@ RSpec.describe RegistrationsController, type: :controller do
 
       it 'redirects to workshop path' do
         expect(response).to redirect_to(root_path)
+      end
+    end
+
+    context 'with plus-one' do
+      it 'updates attribute' do
+        post :create, workshop_id: @workshop.id,
+                      registration: { 'stripe_card_token' => card_token,
+                                      'plus_one' => 'true',
+                                      :questionaire => valid_params }
+        expect(assigns(:registration).plus_one).to be_truthy
       end
     end
 
