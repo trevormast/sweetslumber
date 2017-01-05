@@ -1,5 +1,5 @@
 class WorkshopsController < ApplicationController
-  before_action :set_workshop, only: [:show, :edit, :register, :update, :destroy]
+  before_action :set_workshop, only: [:show, :edit, :register, :update, :destroy, :email_all]
   before_action :admin_only, only: [:new, :edit, :create, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -61,6 +61,16 @@ class WorkshopsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to workshops_url, notice: 'Workshop was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def email_all
+    @recipients = @workshop.users.all.map { |u| u.email }
+    @subject = params['email_all']['subject']
+    @body = params['email_all']['body']
+
+    respond_to do |format|
+      format.js
     end
   end
 
