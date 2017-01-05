@@ -1,16 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <h3><%= @questionaire.registration.user.name %></h3>
 
-<table class="table table-bordered">
-  <thead>
-    <th></th>
-    <th></th>
-  </thead>
-    <% @questionaire.attributes.each do |key, value| %>
-      <tr>
-        <td><strong><%= key %>:</strong></td>
-        <td><%= value %></td>
-      </tr>
-    <% end %>
-</table>
+    <table class="table table-bordered">
+      <thead>
+        <th></th>
+        <th></th>
+      </thead>
+        <% attributes = @questionaire.attributes.except('id', 'registration_id', 'created_at', 'updated_at') %>
+        <% attributes.each do |key, value| %>
+          <tr>
+            <td><strong><%= key %>:</strong></td>
+            <td><%= value %></td>
+          </tr>
+        <% end %>
+    </table>
 
-<%= link_to 'Back', workshops_path %>
+    <%= link_to 'Back', workshops_path %>
+
+  </div>  
+</div>
