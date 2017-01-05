@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :locations
 
   resources :workshops do
+    post :email_all, on: :member
     resources :registrations
   end
 

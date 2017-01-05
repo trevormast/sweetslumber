@@ -27,10 +27,14 @@
       <strong>Price:</strong>
       <%= price_in_dollars(@workshop.price)  %>
     </p>
+
   </div>
   <div class="col-lg-8">
     <% if admin_present? %>
       <h1><%= pluralize(@workshop.users.length, 'Registered User' )%> </h1>
+
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#emailModal">Email All</button>
+
       <table class="table">
         <thead>
           <th>Name</th>
@@ -57,6 +61,40 @@
         <%= link_to 'Edit', edit_workshop_path(@workshop) %> |
       <% end %>
         <%= link_to 'Back', workshops_path %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">EMAIL CLASS</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <%= form_for :email_all, url: email_all_workshop_path(@workshop), remote: true do |form| %>
+              <div class="field form-group">
+                <%= form.label "Subject"  %>
+                <%= form.text_field :subject, class: 'form-control' %>
+              </div>
+
+              <div class="field form-group">
+                <%= form.label "Body"  %>
+                <%= form.text_area :body, class: 'form-control' %>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= form.submit "Send", class: 'btn btn-primary' %>
+        <% end  %>
+      </div>
     </div>
   </div>
 </div>
