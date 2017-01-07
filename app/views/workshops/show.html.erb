@@ -38,13 +38,15 @@
       <table class="table">
         <thead>
           <th>Name</th>
+          <th>Baby's Name</th>
           <th>Email</th>
-          <th>Baby's Age By Workshop Date</th>
+          <th>Baby's Age</th>
           <th></th>
         </thead>
         <% @workshop.users.each do |user| %>
           <tr>
             <td><%= user.name %></td>
+            <td><%= user.registrations.find_by(workshop_id: @workshop).questionaire.baby_name %></td>
             <td><%= user.email %></td>
             <td><%= baby_age(user, @workshop)  %></td>
             <td><%= link_to("View Responses",
