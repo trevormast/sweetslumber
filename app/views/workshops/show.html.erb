@@ -43,7 +43,7 @@
           <th>Baby's Age</th>
           <th></th>
         </thead>
-        <% @workshop.users.each do |user| %>
+        <% User.sorted_by_baby_dob(@workshop).each do |user| %>
           <tr>
             <td><%= user.name %></td>
             <td><%= user.registrations.find_by(workshop_id: @workshop).questionaire.baby_name %></td>
