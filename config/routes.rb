@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
 
+  resources :users, only: [:index]
+
   get 'user/questionaire', :to => 'questionaires#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
