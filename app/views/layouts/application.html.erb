@@ -39,6 +39,8 @@
 
             <% if registered_user? %>
               <li><%= link_to("Resources", resources_path) %></li>
+            <% elsif admin_present? %>
+              <li><%= link_to("Users", users_path) %></li>
             <% end %>
 
             <li><%= link_to("Contact", contact_path) %></li>

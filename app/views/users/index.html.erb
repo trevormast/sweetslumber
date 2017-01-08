@@ -1,0 +1,28 @@
+<div class="row">
+  <header class="section-header">
+    <h1>Index of Users</h1>
+  </header>
+  <% @workshops.each do |workshop| %>
+    <div class="col-lg-8 col-lg-offset-2">
+      <h3> <%= "#{workshop.time.strftime("%b %d, %Y")}" %> </h3>
+      <table class="table">
+      <% User.sorted_by_baby_dob(workshop).each do |user| %>
+        <thead>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.registrations.find_by(workshop_id: workshop).questionaire.baby_name %></td>
+            <td><%= user.registrations.find_by(workshop_id: workshop).questionaire.baby_dob.strftime("%b %d, %Y") %></td>
+          </tr>
+        </tbody>
+      <% end -%>
+      </table>
+    </div>
+  <% end %>
+</div>
