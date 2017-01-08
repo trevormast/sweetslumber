@@ -11,12 +11,18 @@
         <% attributes.each do |key, value| %>
           <tr>
             <td><strong><%= key %>:</strong></td>
-            <td><%= value %></td>
+            <% if key == 'baby_dob' %>
+              <td><%= date_format(value) %></td>
+            <% elsif key == 'bedtime' %>
+              <td><%= time_format(value) %></td>
+            <% else %>
+              <td><%= value %></td>
+            <% end %>
           </tr>
         <% end %>
     </table>
 
     <%= link_to 'Back', workshops_path %>
 
-  </div>  
+  </div>
 </div>
