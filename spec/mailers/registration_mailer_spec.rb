@@ -6,7 +6,7 @@ RSpec.describe RegistrationMailer, type: :mailer do
     let(:workshop) { FactoryGirl.create(:workshop) }
     let(:questionaire) { FactoryGirl.create(:questionaire) }
     let(:registration) {
-      FactoryGirl.create(:registration, 
+      FactoryGirl.create(:registration,
                           user: user,
                           workshop: workshop,
                           questionaire: questionaire)
@@ -34,12 +34,12 @@ RSpec.describe RegistrationMailer, type: :mailer do
     context 'with 2 month old baby' do
       let(:questionaire) { FactoryGirl.create(:questionaire, baby_dob: workshop.time.months_ago(2)) }
       let(:registration) {
-        FactoryGirl.create(:registration, 
+        FactoryGirl.create(:registration,
                             user: user,
                             workshop: workshop,
-                            questionaire: questionaire) 
+                            questionaire: questionaire)
       }
-    
+
 
       it 'sends sleep guide for newborns' do
         expect(homework.body).to include("https://www.preciouslittlesleep.com/newborn-baby-sleep-survival-guide")
@@ -49,12 +49,12 @@ RSpec.describe RegistrationMailer, type: :mailer do
     context 'with 4 month old baby' do
       let(:questionaire) { FactoryGirl.create(:questionaire, baby_dob: workshop.time.months_ago(4)) }
       let(:registration) {
-        FactoryGirl.create(:registration, 
+        FactoryGirl.create(:registration,
                             user: user,
                             workshop: workshop,
-                            questionaire: questionaire) 
+                            questionaire: questionaire)
       }
-    
+
 
       it 'sends sleep guide for newborns' do
         expect(homework.body).to include("https://www.preciouslittlesleep.com/3-6-month-baby-sleep-survival-guide")
@@ -63,29 +63,29 @@ RSpec.describe RegistrationMailer, type: :mailer do
     context 'with 7 month old baby' do
       let(:questionaire) { FactoryGirl.create(:questionaire, baby_dob: workshop.time.months_ago(7)) }
       let(:registration) {
-        FactoryGirl.create(:registration, 
+        FactoryGirl.create(:registration,
                             user: user,
                             workshop: workshop,
-                            questionaire: questionaire) 
+                            questionaire: questionaire)
       }
-    
+
 
       it 'sends sleep guide for newborns' do
-        expect(homework.body).to include("https://www.preciouslittlesleep.com/6-9-month-baby-sleep-survival-guide")
+        expect(homework.body).to include("https://www.preciouslittlesleep.com/6-9-month-baby-sleep-guide")
       end
     end
     context 'with 10 month old baby' do
       let(:questionaire) { FactoryGirl.create(:questionaire, baby_dob: workshop.time.months_ago(10)) }
       let(:registration) {
-        FactoryGirl.create(:registration, 
+        FactoryGirl.create(:registration,
                             user: user,
                             workshop: workshop,
-                            questionaire: questionaire) 
+                            questionaire: questionaire)
       }
-    
+
 
       it 'sends sleep guide for newborns' do
-        expect(homework.body).to include("https://www.preciouslittlesleep.com/9-12-month-baby-sleep-survival-guide")
+        expect(homework.body).to include("https://www.preciouslittlesleep.com/9-12-month-baby-sleep-guide")
       end
     end
   end
