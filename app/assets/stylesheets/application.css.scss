@@ -305,6 +305,20 @@ header.brand, header.section-header {
   margin: 30px 0 0 0;
 }
 
+.image-row .class-pic {
+  overflow-y: hidden;
+}
+
+#home .image-row {
+  margin-top: 30px;
+}
+
+.class-pic img {
+  border-radius: 10px;
+  max-width: 100%
+}
+
+
 .carousel {
   height: 350px;
   width: 100%;
@@ -564,15 +578,6 @@ select {
   border-radius: 10px;
 }
 
-.image-row .class-pic {
-  overflow-y: hidden;
-}
-
-.class-pic img {
-  border-radius: 10px;
-  max-width: 100%
-}
-
 .class-row .col-inner {
   padding: 10px 10px;
   border-radius: 10px;
@@ -755,6 +760,9 @@ select {
 /* MOBILE */
 
 @media screen and (max-width: 736px) {
+  .row.mobile-hide {
+    display: none;
+  }
 
   .class-row .mobile-hide {
     display: none;
@@ -772,6 +780,10 @@ select {
   .mobile-show#mobile-cta > a {
     width: 100%;
     font-size: 25px;
+  }
+
+  .mobile-show#mobile-class-btn {
+    margin-bottom: 15px;
   }
 
   /* NAV */

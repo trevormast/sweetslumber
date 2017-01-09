@@ -1,89 +1,99 @@
-<div class="row carousel-row">
-  <div class="carousel">
-    <div class="carousel-img">
-      <%= image_tag("baby-hand-crop.jpg", class: 'mobile-hide') %>
-      <%= image_tag("baby-hand-mobile.jpg", class: 'mobile-show') %>
+<div class="row" id="home">
+  <div class="row carousel-row mobile-hide">
+    <div class="carousel">
+      <div class="carousel-img">
+        <%= image_tag("baby-hand-crop.jpg", class: 'mobile-hide') %>
+        <%= image_tag("baby-hand-mobile.jpg", class: 'mobile-show') %>
+      </div>
+      <div class="text-overlay">
+        <h2>Personal Plan For Your Little One</h2>
+      </div>
+      <div class="button-container">
+        <%= link_to("Learn More", class_path, class: 'btn btn-carousel mobile-hide') %>
+      </div>
     </div>
-    <div class="text-overlay">
-      <h2>Personal Plan For Your Little One</h2>
+    <div class="carousel">
+      <div class="carousel-img">
+        <%= image_tag("n131ups3hog-amanda-jordan-crop.jpg", class: 'mobile-hide') %>
+        <%= image_tag("n131ups3hog-amanda-jordan-mobile.jpg", class: 'mobile-show') %>
+      </div>
+      <div class="text-overlay">
+        <h2>Breastfeeding Friendly</h2>
+      </div>
+      <div class="button-container">
+        <%= link_to("Learn More", class_path, class: 'btn btn-carousel mobile-hide') %>
+      </div>
     </div>
-    <div class="button-container">
-      <%= link_to("Learn More", class_path, class: 'btn btn-carousel mobile-hide') %>
+    <div class="carousel">
+      <div class="carousel-img">
+        <%= image_tag("g6neij8rqmg-amanda-jordan-crop.jpg", class: 'mobile-hide') %>
+        <%= image_tag("g6neij8rqmg-amanda-jordan-mobile.jpg", class: 'mobile-show') %>
+      </div>
+      <div class="text-overlay">
+        <h2>When Your Baby Is Ready</h2>
+      </div>
+      <div class="button-container">
+        <%= link_to("Learn More", class_path, class: 'btn btn-carousel mobile-hide') %>
+      </div>
     </div>
   </div>
-  <div class="carousel">
-    <div class="carousel-img">
-      <%= image_tag("n131ups3hog-amanda-jordan-crop.jpg", class: 'mobile-hide') %>
-      <%= image_tag("n131ups3hog-amanda-jordan-mobile.jpg", class: 'mobile-show') %>
-    </div>
-    <div class="text-overlay">
-      <h2>Breastfeeding Friendly</h2>
-    </div>
-    <div class="button-container">
-      <%= link_to("Learn More", class_path, class: 'btn btn-carousel mobile-hide') %>
+  <div class="row image-row mobile-show">
+    <div class="header-image class-pic">
+      <%= image_tag("wbc9xilqb4k-tim-bish-crop.jpg") %>
     </div>
   </div>
-  <div class="carousel">
-    <div class="carousel-img">
-      <%= image_tag("g6neij8rqmg-amanda-jordan-crop.jpg", class: 'mobile-hide') %>
-      <%= image_tag("g6neij8rqmg-amanda-jordan-mobile.jpg", class: 'mobile-show') %>
-    </div>
-    <div class="text-overlay">
-      <h2>When Your Baby Is Ready</h2>
-    </div>
-    <div class="button-container">
-      <%= link_to("Learn More", class_path, class: 'btn btn-carousel mobile-hide') %>
-    </div>
-  </div>
-</div>
 
-<div class="row" id="call-to-action">
-  <header class="section-header">
-    <h1>Get the rest you need to take the best care of your baby.</h1>
-    <%= link_to(workshops_path, class: 'btn btn-default') do%>
-      <h2>Find a Class</h2>
-    <% end %>
-  </header>
+  <div class="row" id="call-to-action">
+    <header class="section-header">
+      <h1>Get the rest you need to take the best care of your baby.</h1>
+      <%= link_to( class_path, class: 'btn btn-default mobile-show', id: 'mobile-class-btn') do %>
+        <h2>Learn More</h2>
+      <% end %>
+      <%= link_to(workshops_path, class: 'btn btn-default') do %>
+        <h2>Find a Class</h2>
+      <% end %>
+    </header>
 
-</div>
+  </div>
 
-<div class="row" id="testimonials">
-  <div class="col-lg-4">
-    <div class="col-inner">
-      <h4>
-        "When I left I really felt like I had the tools to make my deepest wish come true... A consistently good night of sleep."
-      </h4>
-      <p>-Lexia</p>
+  <div class="row" id="testimonials">
+    <div class="col-lg-4">
+      <div class="col-inner">
+        <h4>
+          "When I left I really felt like I had the tools to make my deepest wish come true... A consistently good night of sleep."
+        </h4>
+        <p>-Lexia</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="col-inner">
+        <h4>
+          "This class was my life line! I would still be waking every hour with him without Ashley's help."
+        </h4>
+        <p>-Allison</p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="col-inner">
+        <h4>
+          "We learned how to continue nursing but not use it as a crutch so he could fall and stay asleep on his own."
+        </h4>
+        <p>-Clarissa</p>
+      </div>
     </div>
   </div>
-  <div class="col-lg-4">
-    <div class="col-inner">
-      <h4>
-        "This class was my life line! I would still be waking every hour with him without Ashley's help."
-      </h4>
-      <p>-Allison</p>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="col-inner">
-      <h4>
-        "We learned how to continue nursing but not use it as a crutch so he could fall and stay asleep on his own."
-      </h4>
-      <p>-Clarissa</p>
-    </div>
-  </div>
-</div>
 
-<!-- CAROUSEL -->
-<%= javascript_tag do %>
+  <!-- CAROUSEL -->
+  <%= javascript_tag do %>
 
-  document.addEventListener('turbolinks:load', function(){
-    $('.carousel-row').slick({
-      infinite: true,
-      dots: true,
-      arrows: false,
-      autoplay: true,
-      autoplaySpeed: 5000
+    document.addEventListener('turbolinks:load', function(){
+      $('.carousel-row').slick({
+        infinite: true,
+        dots: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 5000
+      });
     });
-  });
-<% end %>
+  <% end %>
+</div>
