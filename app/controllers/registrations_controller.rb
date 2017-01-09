@@ -50,7 +50,7 @@ class RegistrationsController < ApplicationController
 
     def one_week_prior?
       @workshop = Workshop.find(params[:workshop_id])
-      @workshop.time >= 7.days.from_now ? true : redirect_to(workshops_path, alert: "You must register one week prior to workshop date.")
+      @workshop.time > 3.days.from_now ? true : redirect_to(workshops_path, alert: "You must register one week prior to workshop date.")
     end
 
 end

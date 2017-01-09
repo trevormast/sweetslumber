@@ -113,5 +113,17 @@ RSpec.describe RegistrationsController, type: :controller do
         expect(response).to redirect_to(new_workshop_registration_path(@workshop.id))
       end
     end
+
+    context 'less than 3 days before workshop date' do
+      it 'rejects registration' do
+        @time_now = @workshop.time - 2.days
+        allow(Time).to receive(:now).and_return(@time_now)
+
+        post :create, workshop_id: @workshop.id,
+                      registration: { questionaire: valid_params }
+        expect(response).to redirect_to(workshops_path)
+
+      end
+    end
   end
 end
