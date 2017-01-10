@@ -78,6 +78,10 @@ body {
   padding-bottom: 45px;
 }
 
+.body-wrapper {
+  overflow-x: hidden;
+}
+
 h1, h2, h3, h4, p, a, td, th, label {
   font-family: $raleway;
 }
@@ -875,7 +879,7 @@ select {
   }
 
   .row#call-to-action > header > a {
-    width: 100%;
+    width: 90%;
   }
 
   .disclaimer-container {
