@@ -2,6 +2,8 @@
   <div class="col-lg-12">
     <header class="section-header">
       <h1>Workshop Registration</h1>
+      <h4><%= "#{date_format(@workshop.time)} #{time_format(@workshop.time)}" %></h3>
+      <h4><%= @workshop.location.name %></h3>
     </header>
 
     <%= render 'form' %>
