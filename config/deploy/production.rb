@@ -60,6 +60,6 @@ set :ssh_options, { forward_agent: true }
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-#   set :default_env, {
-#       "DEVISE_SECRET_KEY" => ENV["SWEETSLUMBER_DEVISE_KEY"]
-#   }
+set :default_env, {
+  "DEVISE_SECRET_KEY" => ENV["SWEETSLUMBER_DEVISE_KEY"]
+}
