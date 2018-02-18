@@ -43,7 +43,7 @@ gem 'rails_12factor', group: :production
 gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
-gem 'rvm-capistrano'
+gem 'capistrano-rvm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
