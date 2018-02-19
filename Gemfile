@@ -34,8 +34,6 @@ gem 'stripe'
 
 gem 'puma'
 
-gem 'therubyracer'
-
 gem 'execjs'
 
 gem 'rails_12factor', group: :production
