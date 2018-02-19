@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-
 gem 'rails', '4.2.7.1'
 
 gem 'pg', '~> 0.15'
@@ -42,6 +41,7 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-rvm'
+gem 'capistrano-postgresql', '~> 4.8.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
