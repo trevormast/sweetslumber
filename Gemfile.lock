@@ -244,8 +244,8 @@ GEM
       dante (>= 0.2.0)
       multi_json (~> 1.0)
       stripe (~> 1.31)
-    therubyracer (0.12.2)
-      libv8 (~> 3.16.14.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
       ref
     thor (0.19.4)
     thread_safe (0.3.5)
