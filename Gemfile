@@ -63,4 +63,5 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
   gem 'capistrano-passenger'
+  gem 'capistrano-puma'
 end
